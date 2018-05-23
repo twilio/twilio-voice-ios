@@ -43,3 +43,12 @@ Then run `pod install` to install the dependencies for your project.
 ### Manual Integration
 
 See [manual installation](https://www.twilio.com/docs/api/voice-sdk/ios#install).
+
+## Issues and Support
+
+Please file any issues you find here on Github.
+Please ensure that you are not sharing any
+[Personally Identifiable Information(PII)](https://www.twilio.com/docs/glossary/what-is-personally-identifiable-information-pii)
+or sensitive account information (API keys, credentials, etc.) when reporting an issue.
+
+For general inquiries related to the Voice SDK you can file a [support ticket](https://support.twilio.com/hc/en-us/requests/new).

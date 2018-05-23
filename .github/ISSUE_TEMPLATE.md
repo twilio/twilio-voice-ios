@@ -3,6 +3,10 @@
 >  * [Voice Guides](https://www.twilio.com/docs/api/video/ios)
 >  * [Github Issues](https://github.com/twilio/twilio-voice-ios/issues)
 >  * [Changelog](https://www.twilio.com/docs/api/voice-sdk/ios/changelog)
+>
+> Please ensure that you are not sharing any
+[Personally Identifiable Information(PII)](https://www.twilio.com/docs/glossary/what-is-personally-identifiable-information-pii)
+or sensitive account information (API keys, credentials, etc.) when reporting an issue.
 
 ### Description
 
