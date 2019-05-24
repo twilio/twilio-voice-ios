@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>TwilioVoice Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">Twilio Voice </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Twilio</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/audioDevice">audioDevice</option>
+		
+		<option value="//api/name/logLevel">logLevel</option>
+		
+		<option value="//api/name/region">region</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/connectWithAccessToken:delegate:">+ connectWithAccessToken:delegate:</option>
+		
+		<option value="//api/name/connectWithOptions:delegate:">+ connectWithOptions:delegate:</option>
+		
+		<option value="//api/name/handleNotification:delegate:">+ handleNotification:delegate:</option>
+		
+		<option value="//api/name/logLevelForModule:">+ logLevelForModule:</option>
+		
+		<option value="//api/name/registerWithAccessToken:deviceToken:completion:">+ registerWithAccessToken:deviceToken:completion:</option>
+		
+		<option value="//api/name/sdkVersion">+ sdkVersion</option>
+		
+		<option value="//api/name/setLogLevel:module:">+ setLogLevel:module:</option>
+		
+		<option value="//api/name/unregisterWithAccessToken:deviceToken:completion:">+ unregisterWithAccessToken:deviceToken:completion:</option>
+		
+	</optgroup>
+	
+
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">TwilioVoice Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>TwilioVoice.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p><code>TwilioVoice</code> is the entry point to the Twilio Voice SDK. You can register for VoIP push notifications, make outgoing
+Calls, receive CallInvites and audio device assignment using this class.</p>
+
+<p>CallKit Audio Session Handling</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/logLevel" title="logLevel"></a>
+	<h3 class="method-title"><code><a href="#//api/name/logLevel">&nbsp;&nbsp;logLevel</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The current logging level used by the SDK.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, class) TVOLogLevel logLevel</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The default logging level is <code>TVOLogLevelError</code>. <code>TwilioVoice</code> and its components use NSLog internally.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Constants/TVOLogLevel.html">TVOLogLevel</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TwilioVoice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/region" title="region"></a>
+	<h3 class="method-title"><code><a href="#//api/name/region">&nbsp;&nbsp;region</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Defines the region (Twilio data center) used for media and signaling traffic.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy, nonnull, class) NSString *region</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The default region uses Global Low Latency routing, which establishes a connection with the closest
+region to the user. <strong><em>Note:</em></strong> Setting the region during a Call will not apply until all ongoing Calls have ended
+and a subsequent Call is placed.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TwilioVoice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioDevice" title="audioDevice"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioDevice">&nbsp;&nbsp;audioDevice</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The <code>TVOAudioDevice</code> used to record and playback audio in a Call.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (class, nonatomic, strong, nonnull) id&lt;TVOAudioDevice&gt; audioDevice</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>If you wish to provide your own <code>TVOAudioDevice</code> then you must set it before performing any other
+actions with the SDK like connecting to a Call. It is also possible to change the device when you are no longer
+connected to any Calls and have destroyed all other SDK objects.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="TVOAudioDevice.h">TVOAudioDevice</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TwilioVoice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sdkVersion" title="sdkVersion"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sdkVersion">+&nbsp;sdkVersion</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the version of the SDK.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (nonnull NSString *)sdkVersion</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The version of the SDK.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TwilioVoice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setLogLevel:module:" title="setLogLevel:module:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setLogLevel:module:">+&nbsp;setLogLevel:module:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the logging level for an individual module.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)setLogLevel:(TVOLogLevel)<em>logLevel</em> module:(TVOLogModule)<em>module</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>logLevel</code></th>
+						<td><p>The <a href="../Constants/TVOLogLevel.html"><code>TVOLogLevel</code></a> level to be used by the module.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>module</code></th>
+						<td><p>The <a href="../Constants/TVOLogModule.html"><code>TVOLogModule</code></a> for which the logging level is to be set.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Constants/TVOLogLevel.html">TVOLogLevel</a></p></code></li>
+					
+					<li><code><p><a href="../Constants/TVOLogModule.html">TVOLogModule</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TwilioVoice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/logLevelForModule:" title="logLevelForModule:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/logLevelForModule:">+&nbsp;logLevelForModule:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieve the log level for a specific module in the TwilioVoice SDK.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (TVOLogLevel)logLevelForModule:(TVOLogModule)<em>module</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>module</code></th>
+						<td><p>The <code>TVOLogModule</code> for which the log level needs to be set.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The current log level for the specified module.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TwilioVoice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Managing VoIP Push Notifications" name="task_Managing VoIP Push Notifications"></a>
+						<h2 class="task-title">Managing VoIP Push Notifications</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/registerWithAccessToken:deviceToken:completion:" title="registerWithAccessToken:deviceToken:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerWithAccessToken:deviceToken:completion:">+&nbsp;registerWithAccessToken:deviceToken:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Registers for Twilio VoIP push notifications.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerWithAccessToken:(nonnull NSString *)<em>accessToken</em> deviceToken:(nonnull NSString *)<em>deviceToken</em> completion:(nullable void ( ^ ) ( NSError *__nullable error ))<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>Twilio Access Token.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>deviceToken</code></th>
+						<td><p>The push registry token for Apple VoIP Service.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>Callback block to receive the result of the registration.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Registering for push notifications is required to receive incoming Calls through Twilio&rsquo;s infrastructure.
+Once you&rsquo;ve successfully registered it&rsquo;s not necessary to do so again unless your device token changes.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TwilioVoice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/unregisterWithAccessToken:deviceToken:completion:" title="unregisterWithAccessToken:deviceToken:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/unregisterWithAccessToken:deviceToken:completion:">+&nbsp;unregisterWithAccessToken:deviceToken:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Unregisters from Twilio VoIP push notifications.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)unregisterWithAccessToken:(nonnull NSString *)<em>accessToken</em> deviceToken:(nonnull NSString *)<em>deviceToken</em> completion:(nullable void ( ^ ) ( NSError *__nullable error ))<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>Twilio Access Token.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>deviceToken</code></th>
+						<td><p>The push registry token for Apple VoIP Service.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>Callback block to receive the result of the unregistration.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Call this method when you no longer want to receive push notifications for incoming Calls.
+If your device token changes you should call this method to unregister your previous invalid token.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TwilioVoice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/handleNotification:delegate:" title="handleNotification:delegate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/handleNotification:delegate:">+&nbsp;handleNotification:delegate:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Processes an incoming VoIP push notification payload.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)handleNotification:(nonnull NSDictionary *)<em>payload</em> delegate:(nonnull id&lt;TVONotificationDelegate&gt;)<em>delegate</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>payload</code></th>
+						<td><p>Push notification payload.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>delegate</code></th>
+						<td><p>A <a href="../Protocols/TVONotificationDelegate.html"><code>TVONotificationDelegate</code></a> to receive incoming push notification callbacks.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method will asynchronously process your notification payload and call the provided delegate
+on the main dispatch queue.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Protocols/TVONotificationDelegate.html">TVONotificationDelegate</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TwilioVoice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/connectWithAccessToken:delegate:" title="connectWithAccessToken:delegate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/connectWithAccessToken:delegate:">+&nbsp;connectWithAccessToken:delegate:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Connect an outgoing Call.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (nonnull TVOCall *)connectWithAccessToken:(nonnull NSString *)<em>accessToken</em> delegate:(nonnull id&lt;TVOCallDelegate&gt;)<em>delegate</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>The access token.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>delegate</code></th>
+						<td><p>A <a href="../Protocols/TVOCallDelegate.html"><code>TVOCallDelegate</code></a> to receive Call state updates.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <a href="../Classes/TVOCall.html"><code>TVOCall</code></a> object.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method is guaranteed to return a <a href="../Classes/TVOCall.html"><code>TVOCall</code></a> object. It&rsquo;s possible for the returned Call to either
+succeed or fail to connect.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/TVOCall.html">TVOCall</a></p></code></li>
+					
+					<li><code><p><a href="../Protocols/TVOCallDelegate.html">TVOCallDelegate</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TwilioVoice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/connectWithOptions:delegate:" title="connectWithOptions:delegate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/connectWithOptions:delegate:">+&nbsp;connectWithOptions:delegate:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Connect an outgoing Call.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (nonnull TVOCall *)connectWithOptions:(nonnull TVOConnectOptions *)<em>options</em> delegate:(nonnull id&lt;TVOCallDelegate&gt;)<em>delegate</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>options</code></th>
+						<td><p>The connect options.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>delegate</code></th>
+						<td><p>A <a href="../Protocols/TVOCallDelegate.html"><code>TVOCallDelegate</code></a> to receive Call state updates.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A <a href="../Classes/TVOCall.html"><code>TVOCall</code></a> object.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method is guaranteed to return a <a href="../Classes/TVOCall.html"><code>TVOCall</code></a> object. It&rsquo;s possible for the returned Call to either
+succeed or fail to connect. Use the <a href="../Classes/TVOConnectOptions.html"><code>TVOConnectOptions</code></a> builder to specify Call parameters and UUID</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/TVOCall.html">TVOCall</a></p></code></li>
+					
+					<li><code><p><a href="../Protocols/TVOCallDelegate.html">TVOCallDelegate</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/TVOConnectOptions.html">TVOConnectOptions</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TwilioVoice.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2018 Twilio. All rights reserved. Updated: 2018-08-09</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2900316-33', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
