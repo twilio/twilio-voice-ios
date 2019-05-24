@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>TVOCallDelegate Protocol Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">Twilio Voice </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Twilio</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/call:didDisconnectWithError:">- call:didDisconnectWithError:</option>
+		
+		<option value="//api/name/call:didFailToConnectWithError:">- call:didFailToConnectWithError:</option>
+		
+		<option value="//api/name/callDidConnect:">- callDidConnect:</option>
+		
+		<option value="//api/name/callDidStartRinging:">- callDidStartRinging:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">TVOCallDelegate Protocol Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Conforms to</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>TVOCallDelegate.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Objects can conform to the <code>TVOCallDelegate</code> protocol to be informed of the lifecycle events of a <a href="../Classes/TVOCall.html"><code>TVOCall</code></a>.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						<a title="Required Methods" name="task_Required Methods"></a>
+						<h2 class="task-title">Required Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/callDidConnect:" title="callDidConnect:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/callDidConnect:">&ndash;&nbsp;callDidConnect:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Notifies the delegate that a Call has connected.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)callDidConnect:(nonnull TVOCall *)<em>call</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>call</code></th>
+						<td><p>The <a href="../Classes/TVOCall.html"><code>TVOCall</code></a> that was connected.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/TVOCall.html">TVOCall</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TVOCallDelegate.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/call:didFailToConnectWithError:" title="call:didFailToConnectWithError:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/call:didFailToConnectWithError:">&ndash;&nbsp;call:didFailToConnectWithError:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Notifies the delegate that a Call has failed to connect.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)call:(nonnull TVOCall *)<em>call</em> didFailToConnectWithError:(nonnull NSError *)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>call</code></th>
+						<td><p>The <a href="../Classes/TVOCall.html"><code>TVOCall</code></a> that failed to connect.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>The <code>&lt;NSError&gt;</code> that occurred.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/TVOCall.html">TVOCall</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TVOCallDelegate.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/call:didDisconnectWithError:" title="call:didDisconnectWithError:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/call:didDisconnectWithError:">&ndash;&nbsp;call:didDisconnectWithError:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Notifies the delegate that a Call has disconnected.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)call:(nonnull TVOCall *)<em>call</em> didDisconnectWithError:(nullable NSError *)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>call</code></th>
+						<td><p>The <a href="../Classes/TVOCall.html"><code>TVOCall</code></a> that was disconnected.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>Indicates why the disconnect occurred.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>If the disconnection was unexpected then a Non-null <code>NSError</code> will be present.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/TVOCall.html">TVOCall</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TVOCallDelegate.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Optional Methods" name="task_Optional Methods"></a>
+						<h2 class="task-title">Optional Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/callDidStartRinging:" title="callDidStartRinging:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/callDidStartRinging:">&ndash;&nbsp;callDidStartRinging:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Notifies the delegate that the called party is being alerted of a Call.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)callDidStartRinging:(nonnull TVOCall *)<em>call</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>call</code></th>
+						<td><p>The <a href="../Classes/TVOCall.html"><code>TVOCall</code></a> that the called party is being alerted of.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Introduced a new callback method <code>[TVOCallDelegate callDidStartRinging:]</code>. This callback is invoked once
+before the <code>[TVOCallDelegate callDidConnect:]</code> callback when the callee is being alerted of a Call. The duration of
+the <code>TVOCallStateRinging</code> is determined by the <code>answerOnBridge</code> flag provided in the <code>Dial</code> verb of your TwiML
+application associated with this client. If the <code>answerOnBridge</code> flag is <code>false</code>, which is the default, the
+<code>[TVOCallDelegate callDidConnect:]</code> callback will be emitted immediately after
+<code>[TVOCallDelegate callDidStartRinging:]</code>. If the <code>answerOnBridge</code> flag is <code>true</code> this will cause the Call to emit
+the <code>callDidConnect</code> callback only until the call is answered.
+See https://www.twilio.com/docs/voice/twiml/dial#answeronbridge for more details on how to use it with the <code>Dial</code>
+TwiML verb. If the twiML response contains a <code>Say</code> verb, then the call will emit the
+<code>[TVOCallDelegate callDidConnect:]</code> callback immediately after <code>[TVOCallDelegate callDidStartRinging:]</code> is raised,
+irrespective of the value of <code>answerOnBridge</code> being set to <code>true</code> or <code>false</code>.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/TVOCall.html">TVOCall</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">TVOCallDelegate.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2018 Twilio. All rights reserved. Updated: 2018-08-22</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2900316-33', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
