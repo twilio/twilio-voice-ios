@@ -7,7 +7,7 @@ This repository contains releases for the Twilio Programmable Voice for iOS SDK.
 
 We support integration using Carthage binary frameworks. You can add Programmable Voice for iOS by adding the following line to your Cartfile:
 ```
-github "twilio/twilio-voice-ios"
+binary "https://raw.githubusercontent.com/twilio/twilio-voice-ios/Releases/TwilioVoice.json"
 ```
 
 Then run `carthage bootstrap` (or `carthage update` if you are updating your SDKs)
