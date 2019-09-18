@@ -75,7 +75,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 	```
 
 
-5. If you were previously toggling `enableInsights` or specifying a `region` via `TVOCallOptions`, you must now set the `insights` and `region` property on the `TwilioVoice` class. You must do so before `[TwilioVoice connectWithAccessToken:delegate:]` or `[TwilioVoice handleNotification:delegate:]` is called.
+5. If you were previously toggling `enableInsights` or specifying a `region` via `TVOCallOptions`, you must now set the `insights` and `region` property on the `TwilioVoice` class. You must do so before `[TwilioVoice connectWithAccessToken:delegate:]` or `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called.
 
 You can reference the 5.0 quickstart for [obj-c](https://github.com/twilio/voice-quickstart-objc) and [swift](https://github.com/twilio/voice-quickstart-swift) when migrating your application.
 
