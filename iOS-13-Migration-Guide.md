@@ -10,8 +10,8 @@ The SDK now handles incoming call cancellations internally. The “cancel” pus
 
 ### Migration Guides
 
-- [Migrate from Twilio Voice 3.x/4.x to 5.0](#migrate-from-twilio-voice-3x4x-to-5x)
-- [Migrate from Twilio Voice 2.0 to 2.1](#migrate-from-twilio-voice-20-to-21)
+- [Migrate from Twilio Voice 3.x/4.x to 5.0](#migrating-from-twilio-voice-3x4x-to-5x)
+- [Migrate from Twilio Voice 2.0 to 2.1](#migrating-from-twilio-voice-20-to-21)
 
 ## Migrating from Twilio Voice 3.x/4.x to 5.x
 
@@ -79,6 +79,8 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 
 You can reference the 5.0 quickstart for [obj-c](https://github.com/twilio/voice-quickstart-objc) and [swift](https://github.com/twilio/voice-quickstart-swift) when migrating your application.
 
+A summary of the API changes and new Insights events can be found on the [changelog](https://www.twilio.com/docs/voice/voip-sdk/ios/changelog#500).
+
 ## Migrating from Twilio Voice 2.0 to 2.1
 
 If your App supports incoming calls, you **MUST** perform the following steps to comply with the new policy:
@@ -143,3 +145,5 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 5. If you were specifying a region via the `TwilioVoice.h` region property you must now do so before `[TwilioVoice call:params:delegate:]` or `[TwilioVoice handleNotification:delegate:]` is called.
 
 You can reference the 2.1 quickstart for [obj-c](https://github.com/twilio/voice-quickstart-objc/tree/2.x) and [swift](https://github.com/twilio/voice-quickstart-swift/tree/2.x) when migrating your application.
+
+A summary of the API changes and new Insights events can be found on the [changelog](https://www.twilio.com/docs/voice/voip-sdk/ios/2x-changelog#210-september-5-2019).
