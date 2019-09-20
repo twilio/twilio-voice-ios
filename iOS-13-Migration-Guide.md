@@ -50,29 +50,29 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 	- The callee does not accept or reject the call in approximately 30 seconds.
 	- The Voice SDK is unable to establish a connection to Twilio.
   
-  You must retain the `TVOCallInvite` to be notified of a cancellation via `[TVONotificationDelegate cancelledCallInviteReceived:error:]`. A `TVOCancelledCallInvite` will not be raised if the `TVOCallInvite` is accepted or rejected.
+    You must retain the `TVOCallInvite` to be notified of a cancellation via `[TVONotificationDelegate cancelledCallInviteReceived:error:]`. A `TVOCancelledCallInvite` will not be raised if the `TVOCallInvite` is accepted or rejected.
   
-  Failure to register with the new release of the SDK may result in app terminations since "cancel" push notifications will continue to be sent to your application and will not comply with the new PushKit push notification policy. If a "cancel" push notification is received, the `[TwilioVoice handleNotification:delegate:delegateQueue:]` method will now return `false`.
+    Failure to register with the new release of the SDK may result in app terminations since "cancel" push notifications will continue to be sent to your application and will not comply with the new PushKit push notification policy. If a "cancel" push notification is received, the `[TwilioVoice handleNotification:delegate:delegateQueue:]` method will now return `false`.
   
-  To register with the new SDK you must use the following methods:
+    To register with the new SDK you must use the following methods:
 
-	**Swift**
-	
-	```.swift
-	TwilioVoice.register(withAccessToken: accessToken, deviceToken: deviceToken) { (error) in
-	    ...
-	}
-	```
-	
-	**Objective-C**
-	
-	```.objc
-	[TwilioVoice registerWithAccessToken:accessToken
-	                                 deviceToken:self.deviceTokenString
-	                                  completion:^(NSError *error) {
-	    ...
-	}
-	```
+    **Swift**
+
+    ```.swift
+    TwilioVoice.register(withAccessToken: accessToken, deviceToken: deviceToken) { (error) in
+        ...
+    }
+    ```
+
+    **Objective-C**
+
+    ```.objc
+    [TwilioVoice registerWithAccessToken:accessToken
+                                     deviceToken:self.deviceTokenString
+                                      completion:^(NSError *error) {
+        ...
+    }
+    ```
 
 
 5. If you were previously toggling `enableInsights` or specifying a `region` via `TVOCallOptions`, you must now set the `insights` and `region` property on the `TwilioVoice` class. You must do so before `[TwilioVoice connectWithAccessToken:delegate:]` or `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called.
@@ -117,30 +117,29 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 	- The call is prematurely disconnected by the caller.
 	- The callee does not accept or reject the call in approximately 30 seconds.
 	- The Voice SDK is unable to establish a connection to Twilio.
+    The `[TVONotificationDelegate callInviteReceived:]` method will not be raised with a `TVOCallInvite` object of state `TVOCallInviteStateCanceled` if the `TVOCallInivte` is accepted or rejected.
   
-  The `[TVONotificationDelegate callInviteReceived:]` method will not be raised with a `TVOCallInvite` object of state `TVOCallInviteStateCanceled` if the `TVOCallInivte` is accepted or rejected.
-  
-  Failure to register with the new release of the SDK may result in app terminations since "cancel" push notifications will continue to be sent to your application and will not comply with the new PushKit push notification policy. A new error [`TVOErrorUnsupportedCancelMessageError (31302)`](https://www.twilio.com/docs/api/errors/31302) is raised when a "cancel" push notification is provided to `[TwilioVoice handleNotification:delegate:]` via `[TVONotificationDelegate notificationError:]`.
+    Failure to register with the new release of the SDK may result in app terminations since "cancel" push notifications will continue to be sent to your application and will not comply with the new PushKit push notification policy. A new error [`TVOErrorUnsupportedCancelMessageError (31302)`](https://www.twilio.com/docs/api/errors/31302) is raised when a "cancel" push notification is provided to `[TwilioVoice handleNotification:delegate:]` via `[TVONotificationDelegate notificationError:]`.
 
- To register with the new SDK you must use the following methods:
+   To register with the new SDK you must use the following methods:
  
-	**Swift**
-	
-	```.swift
-	TwilioVoice.register(withAccessToken: accessToken, deviceToken: deviceToken) { (error) in
-	    ...
-	}
-	```
+    **Swift**
 
-	**Objective-C**
-	
-	```
-	[TwilioVoice registerWithAccessToken:accessToken
-	                         deviceToken:self.deviceTokenString
-	                          completion:^(NSError *error) {
-	    ...
-	}
-	```
+    ```.swift
+    TwilioVoice.register(withAccessToken: accessToken, deviceToken: deviceToken) { (error) in
+        ...
+    }
+    ```
+
+    **Objective-C**
+
+    ```.objc
+    [TwilioVoice registerWithAccessToken:accessToken
+                             deviceToken:self.deviceTokenString
+                              completion:^(NSError *error) {
+        ...
+    }
+    ```
 
 5. If you were specifying a region via the `TwilioVoice.h` region property you must now do so before `[TwilioVoice call:params:delegate:]` or `[TwilioVoice handleNotification:delegate:]` is called.
 
