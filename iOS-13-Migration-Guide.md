@@ -45,7 +45,75 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 	}
 	```
 
-4. You must register via `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` when your App starts. This ensures that your app no longer receives “cancel” push notifications. A "call" push notification, when passed to `[TwilioVoice handleNotification:delegate:delegateQueue:]`, will return a `TVOCallInvite` object to you synchronously via the `[TVONotificationDelegate callInviteReceived:]` method when `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called. A `TVOCancelledCallInvite` will be raised asynchronously via `[TVONotificationDelegate cancelledCallInviteReceived:error:]` if any of the following events occur:
+4. You must register via `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` when your App starts.
+
+	**Swift**
+	
+	```.swift
+	// AppDelegate.swift
+	class AppDelegate: UIResponder, UIApplicationDelegate, PKPushRegistryDelegate {
+	    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+	        ...
+	        self.setupPushRegistry()
+	        ...
+	    }
+
+	    func setupPushRegistry() {
+	        var voipRegistry: PKPushRegistry
+	        voipRegistry.delegate = self
+            voipRegistry.desiredPushTypes = Set([PKPushType.voIP])
+	    }
+
+	    func pushRegistry(_ registry: PKPushRegistry, didUpdate credentials: PKPushCredentials, for type: PKPushType) {
+	        let accessToken = fetchAccessToken()
+            let deviceToken = credentials.token.map { String(format: "%02x", $0) }.joined()
+
+            TwilioVoice.register(withAccessToken: accessToken, deviceToken: deviceToken) { (error) in
+                ...
+            }
+	    }
+	}
+	```
+
+	**Objective-C**
+	
+	```.objc
+	// AppDelegate.m
+	@interface AppDelegate () <PKPushRegistryDelegate>
+	@property (nonatomic, strong) PKPushRegistry *voipRegistry;
+	@end
+
+	@implementation AppDelegate
+
+	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+	    ...
+	    [self setupPushRegistry];
+	    ...
+	}
+
+	- (void)setupPushRegistry {
+	    self.voipRegistry = [[PKPushRegistry alloc] initWithQueue:dispatch_get_main_queue()];
+	    self.voipRegistry.delegate = self;
+	    self.voipRegistry.desiredPushTypes = [NSSet setWithObject:PKPushTypeVoIP];
+	}
+
+	#pragma mark - PKPushRegistryDelegate
+	- (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
+	    self.deviceTokenString = [credentials.token description];
+	    NSString *accessToken = [self fetchAccessToken];
+
+	    [TwilioVoice registerWithAccessToken:accessToken
+	                             deviceToken:self.deviceTokenString
+	                              completion:^(NSError *error) {
+	        ...
+	    }];
+	}
+
+	@end
+	```
+
+This ensures that your app no longer receives “cancel” push notifications. Please note that if the app is updated but never launched for the execution of the above, the mobile client will still receive a "cancel" notification, which could cause the app terminated by iOS if the VoIP push notification is not reported to CallKit as a new incoming call.
+A "call" push notification, when passed to `[TwilioVoice handleNotification:delegate:delegateQueue:]`, will return a `TVOCallInvite` object to you synchronously via the `[TVONotificationDelegate callInviteReceived:]` method when `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called. A `TVOCancelledCallInvite` will be raised asynchronously via `[TVONotificationDelegate cancelledCallInviteReceived:error:]` if any of the following events occur:
 	- The call is prematurely disconnected by the caller.
 	- The callee does not accept or reject the call in approximately 30 seconds.
 	- The Voice SDK is unable to establish a connection to Twilio.
