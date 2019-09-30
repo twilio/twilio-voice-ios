@@ -76,7 +76,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 	```
 
 	**Objective-C**
-	
+
 	```.objective-c
 	// AppDelegate.m
 	@interface AppDelegate () <PKPushRegistryDelegate>
@@ -112,7 +112,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 	@end
 	```
 
-This ensures that your app no longer receives “cancel” push notifications. Please note that if the app is updated but never launched for the execution of the above, the mobile client will still receive a "cancel" notification, which could cause the app terminated by iOS if the VoIP push notification is not reported to CallKit as a new incoming call.
+This ensures that your app no longer receives “cancel” push notifications. Please note that if the app is updated but never launched for the execution of the above, the mobile client will still receive "cancel" notifications, which could cause the app terminated by iOS if the VoIP push notification is not reported to CallKit as a new incoming call.
 A "call" push notification, when passed to `[TwilioVoice handleNotification:delegate:delegateQueue:]`, will return a `TVOCallInvite` object to you synchronously via the `[TVONotificationDelegate callInviteReceived:]` method when `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called. A `TVOCancelledCallInvite` will be raised asynchronously via `[TVONotificationDelegate cancelledCallInviteReceived:error:]` if any of the following events occur:
 	- The call is prematurely disconnected by the caller.
 	- The callee does not accept or reject the call in approximately 30 seconds.
