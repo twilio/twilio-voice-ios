@@ -33,7 +33,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 
 	**Objective-C**
 	
-	```.objc
+	```.objective-c
 	- (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
 	    ...
 	    const unsigned *tokenBytes = [credentials.token bytes];
@@ -77,7 +77,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 
 	**Objective-C**
 	
-	```.objc
+	```.objective-c
 	// AppDelegate.m
 	@interface AppDelegate () <PKPushRegistryDelegate>
 	@property (nonatomic, strong) PKPushRegistry *voipRegistry;
@@ -134,7 +134,7 @@ A "call" push notification, when passed to `[TwilioVoice handleNotification:dele
 
     **Objective-C**
 
-    ```.objc
+    ```.objective-c
     [TwilioVoice registerWithAccessToken:accessToken
                                      deviceToken:self.deviceTokenString
                                       completion:^(NSError *error) {
@@ -169,7 +169,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 
 	**Objective-C**
 	
-	```.objc
+	```.objective-c
 	- (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
 	    ...
 	    const unsigned *tokenBytes = [credentials.token bytes];
@@ -201,7 +201,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 
     **Objective-C**
 
-    ```.objc
+    ```.objective-c
     [TwilioVoice registerWithAccessToken:accessToken
                              deviceToken:self.deviceTokenString
                               completion:^(NSError *error) {
