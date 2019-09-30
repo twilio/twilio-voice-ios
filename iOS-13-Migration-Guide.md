@@ -129,7 +129,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 
 	**Swift**
 
-	```
+	```.swift
 	func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
 		if (payload.dictionaryPayload["twi_message_type"] as! String == "twilio.voice.cancel") {
             let callHandle = CXHandle(type: .generic, value: "alice")
@@ -153,7 +153,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 
 	**Objective-C**
 
-	```
+	```.objective-c
 	- (void)pushRegistry:(PKPushRegistry *)registry
     didReceiveIncomingPushWithPayload:(PKPushPayload *)payload
                  forType:(PKPushType)type
