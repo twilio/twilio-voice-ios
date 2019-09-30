@@ -45,9 +45,18 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 	}
 	```
 
-4. You must register via `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` when your App starts.
+4. You must register via `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` when your App starts. This ensures that your app no longer receives “cancel” push notifications. A "call" push notification, when passed to `[TwilioVoice handleNotification:delegate:delegateQueue:]`, will return a `TVOCallInvite` object to you synchronously via the `[TVONotificationDelegate callInviteReceived:]` method when `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called. A `TVOCancelledCallInvite` will be raised asynchronously via `[TVONotificationDelegate cancelledCallInviteReceived:error:]` if any of the following events occur:
+	- The call is prematurely disconnected by the caller.
+	- The callee does not accept or reject the call in approximately 30 seconds.
+	- The Voice SDK is unable to establish a connection to Twilio.
+  
+    You must retain the `TVOCallInvite` to be notified of a cancellation via `[TVONotificationDelegate cancelledCallInviteReceived:error:]`. A `TVOCancelledCallInvite` will not be raised if the `TVOCallInvite` is accepted or rejected.
+  
+    Failure to register with the new release of the SDK may result in app terminations since "cancel" push notifications will continue to be sent to your application and will not comply with the new PushKit push notification policy. If a "cancel" push notification is received, the `[TwilioVoice handleNotification:delegate:delegateQueue:]` method will now return `false`.
+  
+    To register with the new SDK when the app is launched:
 
-	**Swift**
+    **Swift**
 	
 	```.swift
 	// AppDelegate.swift
@@ -112,37 +121,57 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 	@end
 	```
 
-This ensures that your app no longer receives “cancel” push notifications. Please note that if the app is updated but never launched for the execution of the above, the mobile client will still receive "cancel" notifications, which could cause the app terminated by iOS if the VoIP push notification is not reported to CallKit as a new incoming call.
+	Please note that if the app is updated but never launched to perform the registration, the mobile client will still receive "cancel" notifications, which could cause the app terminated by iOS if the VoIP push notification is not reported to CallKit as a new incoming call. To workaround and avoid app being terminated on iOS 13, upon receiving a "cancel" notification you can report a dummy incoming call to CallKit with nil UUID:
 
-A "call" push notification, when passed to `[TwilioVoice handleNotification:delegate:delegateQueue:]`, will return a `TVOCallInvite` object to you synchronously via the `[TVONotificationDelegate callInviteReceived:]` method when `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called. A `TVOCancelledCallInvite` will be raised asynchronously via `[TVONotificationDelegate cancelledCallInviteReceived:error:]` if any of the following events occur:
-	- The call is prematurely disconnected by the caller.
-	- The callee does not accept or reject the call in approximately 30 seconds.
-	- The Voice SDK is unable to establish a connection to Twilio.
-  
-    You must retain the `TVOCallInvite` to be notified of a cancellation via `[TVONotificationDelegate cancelledCallInviteReceived:error:]`. A `TVOCancelledCallInvite` will not be raised if the `TVOCallInvite` is accepted or rejected.
-  
-    Failure to register with the new release of the SDK may result in app terminations since "cancel" push notifications will continue to be sent to your application and will not comply with the new PushKit push notification policy. If a "cancel" push notification is received, the `[TwilioVoice handleNotification:delegate:delegateQueue:]` method will now return `false`.
-  
-    To register with the new SDK you must use the following methods:
+	**Swift**
 
-    **Swift**
+	```
+	func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
+		if (payload.dictionaryPayload["twi_message_type"] as! String == "twilio.voice.cancel") {
+            let callHandle = CXHandle(type: .generic, value: "alice")
 
-    ```.swift
-    TwilioVoice.register(withAccessToken: accessToken, deviceToken: deviceToken) { (error) in
-        ...
-    }
-    ```
+            let callUpdate = CXCallUpdate()
+            callUpdate.remoteHandle = callHandle
+            callUpdate.supportsDTMF = true
+            callUpdate.supportsHolding = true
+            callUpdate.supportsGrouping = false
+            callUpdate.supportsUngrouping = false
+            callUpdate.hasVideo = false
 
-    **Objective-C**
+            callKitProvider.reportNewIncomingCall(with: nil, update: callUpdate) { error in
+                ...
+            }
 
-    ```.objective-c
-    [TwilioVoice registerWithAccessToken:accessToken
-                                     deviceToken:self.deviceTokenString
-                                      completion:^(NSError *error) {
-        ...
-    }
-    ```
+            return
+        }
+	}
+	```
 
+	**Objective-C**
+
+	```
+	- (void)pushRegistry:(PKPushRegistry *)registry
+    didReceiveIncomingPushWithPayload:(PKPushPayload *)payload
+                 forType:(PKPushType)type
+    withCompletionHandler:(void (^)(void))completion {
+        if ([payload.dictionaryPayload[@"twi_message_type"] isEqualToString:@"twilio.voice.cancel"]) {
+        	CXHandle *callHandle = [[CXHandle alloc] initWithType:CXHandleTypeGeneric value:@"alice"];
+
+	        CXCallUpdate *callUpdate = [[CXCallUpdate alloc] init];
+            callUpdate.remoteHandle = callHandle;
+            callUpdate.supportsDTMF = YES;
+            callUpdate.supportsHolding = YES;
+            callUpdate.supportsGrouping = NO;
+            callUpdate.supportsUngrouping = NO;
+            callUpdate.hasVideo = NO;
+
+            [self.callKitProvider reportNewIncomingCallWithUUID:nil update:callUpdate completion:^(NSError *error) {
+                ...
+            }];
+	        return;
+        }
+	}
+	```
 
 5. If you were previously toggling `enableInsights` or specifying a `region` via `TVOCallOptions`, you must now set the `insights` and `region` property on the `TwilioVoice` class. You must do so before `[TwilioVoice connectWithAccessToken:delegate:]` or `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called.
 
