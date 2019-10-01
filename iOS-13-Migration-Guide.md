@@ -125,7 +125,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 	@end
 	```
 
-	Please note that if the app is updated but never launched to perform the registration, the mobile client will still receive "cancel" notifications, which could cause the app terminated by iOS if the VoIP push notification is not reported to CallKit as a new incoming call. To workaround and avoid app being terminated on iOS 13, upon receiving a "cancel" notification you can report a dummy incoming call to CallKit with `nil` UUID:
+	Please note that if the app is updated but never launched to perform the registration, the mobile client will still receive "cancel" notifications, which could cause the app terminated by iOS if the VoIP push notification is not reported to CallKit as a new incoming call. To workaround and avoid app being terminated on iOS 13, upon receiving a "cancel" notification you can report a dummy incoming call to CallKit and then end it on the next tick:
 
 	**Swift**
 
@@ -142,7 +142,16 @@ If your App supports incoming calls, you **MUST** perform the following steps to
             callUpdate.supportsUngrouping = false
             callUpdate.hasVideo = false
 
-            callKitProvider.reportNewIncomingCall(with: nil, update: callUpdate) { error in
+            let uuid = UUID()
+
+            callKitProvider.reportNewIncomingCall(with: uuid, update: callUpdate) { error in
+                ...
+            }
+
+            let endCallAction = CXEndCallAction(call: uuid)
+            let transaction = CXTransaction(action: endCallAction)
+
+            callKitCallController.request(transaction) { error in
                 ...
             }
 
@@ -169,10 +178,20 @@ If your App supports incoming calls, you **MUST** perform the following steps to
             callUpdate.supportsUngrouping = NO;
             callUpdate.hasVideo = NO;
 
-            [self.callKitProvider reportNewIncomingCallWithUUID:nil update:callUpdate completion:^(NSError *error) {
+            NSUUID *uuid = [NSUUID UUID];
+
+            [self.callKitProvider reportNewIncomingCallWithUUID:uuid update:callUpdate completion:^(NSError *error) {
                 ...
             }];
-	        return;
+
+            CXEndCallAction *endCallAction = [[CXEndCallAction alloc] initWithCallUUID:uuid];
+            CXTransaction *transaction = [[CXTransaction alloc] initWithAction:endCallAction];
+
+            [self.callKitCallController requestTransaction:transaction completion:^(NSError *error) {
+                ...
+            }];
+
+            return;
         }
 	}
 	```
@@ -294,7 +313,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 	@end
 	```
 
-	Please note that if the app is updated but never launched to perform the registration, the mobile client will still receive "cancel" notifications, which could cause the app terminated by iOS if the VoIP push notification is not reported to CallKit as a new incoming call. To workaround and avoid app being terminated on iOS 13, upon receiving a "cancel" notification you can report a dummy incoming call to CallKit with `nil` UUID:
+	Please note that if the app is updated but never launched to perform the registration, the mobile client will still receive "cancel" notifications, which could cause the app terminated by iOS if the VoIP push notification is not reported to CallKit as a new incoming call. To workaround and avoid app being terminated on iOS 13, upon receiving a "cancel" notification you can report a dummy incoming call to CallKit and then end it on the next tick:
 
 	**Swift**
 
@@ -311,7 +330,16 @@ If your App supports incoming calls, you **MUST** perform the following steps to
             callUpdate.supportsUngrouping = false
             callUpdate.hasVideo = false
 
-            callKitProvider.reportNewIncomingCall(with: nil, update: callUpdate) { error in
+            let uuid = UUID()
+
+            callKitProvider.reportNewIncomingCall(with: uuid, update: callUpdate) { error in
+                ...
+            }
+
+            let endCallAction = CXEndCallAction(call: uuid)
+            let transaction = CXTransaction(action: endCallAction)
+
+            callKitCallController.request(transaction) { error in
                 ...
             }
 
@@ -328,9 +356,9 @@ If your App supports incoming calls, you **MUST** perform the following steps to
                  forType:(PKPushType)type
     withCompletionHandler:(void (^)(void))completion {
         if ([payload.dictionaryPayload[@"twi_message_type"] isEqualToString:@"twilio.voice.cancel"]) {
-        	CXHandle *callHandle = [[CXHandle alloc] initWithType:CXHandleTypeGeneric value:@"alice"];
+            CXHandle *callHandle = [[CXHandle alloc] initWithType:CXHandleTypeGeneric value:@"alice"];
 
-	        CXCallUpdate *callUpdate = [[CXCallUpdate alloc] init];
+            CXCallUpdate *callUpdate = [[CXCallUpdate alloc] init];
             callUpdate.remoteHandle = callHandle;
             callUpdate.supportsDTMF = YES;
             callUpdate.supportsHolding = YES;
@@ -338,10 +366,20 @@ If your App supports incoming calls, you **MUST** perform the following steps to
             callUpdate.supportsUngrouping = NO;
             callUpdate.hasVideo = NO;
 
-            [self.callKitProvider reportNewIncomingCallWithUUID:nil update:callUpdate completion:^(NSError *error) {
+            NSUUID *uuid = [NSUUID UUID];
+
+            [self.callKitProvider reportNewIncomingCallWithUUID:uuid update:callUpdate completion:^(NSError *error) {
                 ...
             }];
-	        return;
+
+            CXEndCallAction *endCallAction = [[CXEndCallAction alloc] initWithCallUUID:uuid];
+            CXTransaction *transaction = [[CXTransaction alloc] initWithAction:endCallAction];
+
+            [self.callKitCallController requestTransaction:transaction completion:^(NSError *error) {
+                ...
+            }];
+
+            return;
         }
 	}
 	```
