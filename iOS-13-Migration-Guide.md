@@ -21,59 +21,184 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 2. Report the call to CallKit. Refer to this [example](https://github.com/twilio/voice-quickstart-swift/tree/master) for how to report the call to CallKit.
 3. Update how you decode the PushKit token
 
-	**Swift**
-	
-	```.swift
-	func pushRegistry(_ registry: PKPushRegistry, didUpdate credentials: PKPushCredentials, for type: PKPushType) {
-	    ...
-	    let deviceToken = credentials.token.map { String(format: "%02x", $0) }.joined()
-	    ...
-	}
-	```
-
-	**Objective-C**
-	
-	```.objc
-	- (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
-	    ...
-	    const unsigned *tokenBytes = [credentials.token bytes];
-	    self.deviceTokenString = [NSString stringWithFormat:@"<%08x %08x %08x %08x %08x %08x %08x %08x>", 
-	                                                        ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
-	                                                        ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
-	                                                        ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
-	    ...
-	}
-	```
-
-4. You must register via `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` when your App starts. This ensures that your app no longer receives “cancel” push notifications. A "call" push notification, when passed to `[TwilioVoice handleNotification:delegate:delegateQueue:]`, will return a `TVOCallInvite` object to you synchronously via the `[TVONotificationDelegate callInviteReceived:]` method when `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called. A `TVOCancelledCallInvite` will be raised asynchronously via `[TVONotificationDelegate cancelledCallInviteReceived:error:]` if any of the following events occur:
-	- The call is prematurely disconnected by the caller.
-	- The callee does not accept or reject the call in approximately 30 seconds.
-	- The Voice SDK is unable to establish a connection to Twilio.
-  
-    You must retain the `TVOCallInvite` to be notified of a cancellation via `[TVONotificationDelegate cancelledCallInviteReceived:error:]`. A `TVOCancelledCallInvite` will not be raised if the `TVOCallInvite` is accepted or rejected.
-  
-    Failure to register with the new release of the SDK may result in app terminations since "cancel" push notifications will continue to be sent to your application and will not comply with the new PushKit push notification policy. If a "cancel" push notification is received, the `[TwilioVoice handleNotification:delegate:delegateQueue:]` method will now return `false`.
-  
-    To register with the new SDK you must use the following methods:
-
     **Swift**
-
+    
     ```.swift
-    TwilioVoice.register(withAccessToken: accessToken, deviceToken: deviceToken) { (error) in
+    func pushRegistry(_ registry: PKPushRegistry, didUpdate credentials: PKPushCredentials, for type: PKPushType) {
+        ...
+        let deviceToken = credentials.token.map { String(format: "%02x", $0) }.joined()
         ...
     }
     ```
 
     **Objective-C**
-
-    ```.objc
-    [TwilioVoice registerWithAccessToken:accessToken
-                                     deviceToken:self.deviceTokenString
-                                      completion:^(NSError *error) {
+    
+    ```.objective-c
+    - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
+        ...
+        const unsigned *tokenBytes = [credentials.token bytes];
+        self.deviceTokenString = [NSString stringWithFormat:@"<%08x %08x %08x %08x %08x %08x %08x %08x>", 
+                                                            ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
+                                                            ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
+                                                            ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
         ...
     }
     ```
 
+4. You must register via `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` when your App starts. This ensures that your app no longer receives “cancel” push notifications. A "call" push notification, when passed to `[TwilioVoice handleNotification:delegate:delegateQueue:]`, will return a `TVOCallInvite` object to you synchronously via the `[TVONotificationDelegate callInviteReceived:]` method when `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called. A `TVOCancelledCallInvite` will be raised asynchronously via `[TVONotificationDelegate cancelledCallInviteReceived:error:]` if any of the following events occur:
+    - The call is prematurely disconnected by the caller.
+    - The callee does not accept or reject the call in approximately 30 seconds.
+    - The Voice SDK is unable to establish a connection to Twilio.
+  
+    You must retain the `TVOCallInvite` to be notified of a cancellation via `[TVONotificationDelegate cancelledCallInviteReceived:error:]`. A `TVOCancelledCallInvite` will not be raised if the `TVOCallInvite` is accepted or rejected.
+  
+    Failure to register with the new release of the SDK may result in app terminations since "cancel" push notifications will continue to be sent to your application and will not comply with the new PushKit push notification policy. If a "cancel" push notification is received, the `[TwilioVoice handleNotification:delegate:delegateQueue:]` method will now return `false`.
+  
+    To register with the new SDK when the app is launched:
+
+    **Swift**
+    
+    ```.swift
+    // AppDelegate.swift
+    class AppDelegate: UIResponder, UIApplicationDelegate, PKPushRegistryDelegate {
+        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+            ...
+            self.setupPushRegistry()
+            ...
+        }
+
+        func setupPushRegistry() {
+            var voipRegistry: PKPushRegistry
+            voipRegistry.delegate = self
+            voipRegistry.desiredPushTypes = Set([PKPushType.voIP])
+        }
+
+        func pushRegistry(_ registry: PKPushRegistry, didUpdate credentials: PKPushCredentials, for type: PKPushType) {
+            let accessToken = fetchAccessToken()
+            let deviceToken = credentials.token.map { String(format: "%02x", $0) }.joined()
+
+            TwilioVoice.register(withAccessToken: accessToken, deviceToken: deviceToken) { (error) in
+                ...
+            }
+        }
+    }
+    ```
+
+    **Objective-C**
+
+    ```.objective-c
+    // AppDelegate.m
+    @interface AppDelegate () <PKPushRegistryDelegate>
+    @property (nonatomic, strong) PKPushRegistry *voipRegistry;
+    @end
+
+    @implementation AppDelegate
+
+    - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        ...
+        [self setupPushRegistry];
+        ...
+    }
+
+    - (void)setupPushRegistry {
+        self.voipRegistry = [[PKPushRegistry alloc] initWithQueue:dispatch_get_main_queue()];
+        self.voipRegistry.delegate = self;
+        self.voipRegistry.desiredPushTypes = [NSSet setWithObject:PKPushTypeVoIP];
+    }
+
+    #pragma mark - PKPushRegistryDelegate
+    - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
+        const unsigned *tokenBytes = [credentials.token bytes];
+        self.deviceTokenString = [NSString stringWithFormat:@"<%08x %08x %08x %08x %08x %08x %08x %08x>",
+                                 ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
+                                 ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
+                                 ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+        NSString *accessToken = [self fetchAccessToken];
+
+        [TwilioVoice registerWithAccessToken:accessToken
+                                 deviceToken:self.deviceTokenString
+                                  completion:^(NSError *error) {
+            ...
+        }];
+    }
+
+    @end
+    ```
+
+    Please note that if the app is updated but never launched to perform the registration, the mobile client will still receive "cancel" notifications, which could cause the app terminated by iOS if the VoIP push notification is not reported to CallKit as a new incoming call. To workaround and avoid app being terminated on iOS 13, upon receiving a "cancel" notification you can report a dummy incoming call to CallKit and then end it on the next tick:
+
+    **Swift**
+
+    ```.swift
+    func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
+        if (payload.dictionaryPayload["twi_message_type"] as! String == "twilio.voice.cancel") {
+            let callHandle = CXHandle(type: .generic, value: "alice")
+
+            let callUpdate = CXCallUpdate()
+            callUpdate.remoteHandle = callHandle
+            callUpdate.supportsDTMF = true
+            callUpdate.supportsHolding = true
+            callUpdate.supportsGrouping = false
+            callUpdate.supportsUngrouping = false
+            callUpdate.hasVideo = false
+
+            let uuid = UUID()
+
+            callKitProvider.reportNewIncomingCall(with: uuid, update: callUpdate) { error in
+                ...
+            }
+
+            DispatchQueue.main.async {
+                let endCallAction = CXEndCallAction(call: uuid)
+                let transaction = CXTransaction(action: endCallAction)
+
+                callKitCallController.request(transaction) { error in
+                    ...
+                }
+            }
+
+            return
+        }
+    }
+    ```
+
+    **Objective-C**
+
+    ```.objective-c
+    - (void)pushRegistry:(PKPushRegistry *)registry
+    didReceiveIncomingPushWithPayload:(PKPushPayload *)payload
+                 forType:(PKPushType)type
+    withCompletionHandler:(void (^)(void))completion {
+        if ([payload.dictionaryPayload[@"twi_message_type"] isEqualToString:@"twilio.voice.cancel"]) {
+            CXHandle *callHandle = [[CXHandle alloc] initWithType:CXHandleTypeGeneric value:@"alice"];
+
+            CXCallUpdate *callUpdate = [[CXCallUpdate alloc] init];
+            callUpdate.remoteHandle = callHandle;
+            callUpdate.supportsDTMF = YES;
+            callUpdate.supportsHolding = YES;
+            callUpdate.supportsGrouping = NO;
+            callUpdate.supportsUngrouping = NO;
+            callUpdate.hasVideo = NO;
+
+            NSUUID *uuid = [NSUUID UUID];
+
+            [self.callKitProvider reportNewIncomingCallWithUUID:uuid update:callUpdate completion:^(NSError *error) {
+                ...
+            }];
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                CXEndCallAction *endCallAction = [[CXEndCallAction alloc] initWithCallUUID:uuid];
+                CXTransaction *transaction = [[CXTransaction alloc] initWithAction:endCallAction];
+
+                [self.callKitCallController requestTransaction:transaction completion:^(NSError *error) {
+                    ...
+                }];
+            });
+
+            return;
+        }
+    }
+    ```
 
 5. If you were previously toggling `enableInsights` or specifying a `region` via `TVOCallOptions`, you must now set the `insights` and `region` property on the `TwilioVoice` class. You must do so before `[TwilioVoice connectWithAccessToken:delegate:]` or `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called.
 
@@ -89,55 +214,181 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 2. Report the call to CallKit. Refer to this [example](https://github.com/twilio/voice-quickstart-swift/tree/2.x) for how to report the call to CallKit.
 3. Update how you decode the PushKit device token
 
-	**Swift**
-	
-	```.swift
-	func pushRegistry(_ registry: PKPushRegistry, didUpdate credentials: PKPushCredentials, for type: PKPushType) {
-	    ...
-	    let deviceToken = credentials.token.map { String(format: "%02x", $0) }.joined()
-	    ...
-	}
-	```
-
-	**Objective-C**
-	
-	```.objc
-	- (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
-	    ...
-	    const unsigned *tokenBytes = [credentials.token bytes];
-	    self.deviceTokenString = [NSString stringWithFormat:@"<%08x %08x %08x %08x %08x %08x %08x %08x>", 
-	                                                        ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
-	                                                        ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
-	                                                        ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
-	    ...
-	}
-	```
-
-4. You must register via `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` when your App starts. This ensures that your app no longer receives “cancel” push notifications. A "call" push notification, when passed to `[TwilioVoice handleNotification:delegate:]`, will return a `TVOCallInvite` object to you synchronously via the `[TVONotificationDelegate callInviteReceived:]` method when `[TwilioVoice handleNotification:delegate:]` is called. The SDK will invoke the `[TVONotificationDelegate callInviteReceived:]` method asynchronously with a `TVOCallInvite` object of state `TVOCallInviteStateCanceled` if any of the following events occur:
-	- The call is prematurely disconnected by the caller.
-	- The callee does not accept or reject the call in approximately 30 seconds.
-	- The Voice SDK is unable to establish a connection to Twilio.
-    The `[TVONotificationDelegate callInviteReceived:]` method will not be raised with a `TVOCallInvite` object of state `TVOCallInviteStateCanceled` if the `TVOCallInivte` is accepted or rejected.
-  
-    Failure to register with the new release of the SDK may result in app terminations since "cancel" push notifications will continue to be sent to your application and will not comply with the new PushKit push notification policy. A new error [`TVOErrorUnsupportedCancelMessageError (31302)`](https://www.twilio.com/docs/api/errors/31302) is raised when a "cancel" push notification is provided to `[TwilioVoice handleNotification:delegate:]` via `[TVONotificationDelegate notificationError:]`.
-
-   To register with the new SDK you must use the following methods:
- 
     **Swift**
-
+    
     ```.swift
-    TwilioVoice.register(withAccessToken: accessToken, deviceToken: deviceToken) { (error) in
+    func pushRegistry(_ registry: PKPushRegistry, didUpdate credentials: PKPushCredentials, for type: PKPushType) {
+        ...
+        let deviceToken = credentials.token.map { String(format: "%02x", $0) }.joined()
         ...
     }
     ```
 
     **Objective-C**
-
-    ```.objc
-    [TwilioVoice registerWithAccessToken:accessToken
-                             deviceToken:self.deviceTokenString
-                              completion:^(NSError *error) {
+    
+    ```.objective-c
+    - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
         ...
+        const unsigned *tokenBytes = [credentials.token bytes];
+        self.deviceTokenString = [NSString stringWithFormat:@"<%08x %08x %08x %08x %08x %08x %08x %08x>", 
+                                                            ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
+                                                            ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
+                                                            ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+        ...
+    }
+    ```
+
+4. You must register via `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` when your App starts. This ensures that your app no longer receives “cancel” push notifications. A "call" push notification, when passed to `[TwilioVoice handleNotification:delegate:]`, will return a `TVOCallInvite` object to you synchronously via the `[TVONotificationDelegate callInviteReceived:]` method when `[TwilioVoice handleNotification:delegate:]` is called. The SDK will invoke the `[TVONotificationDelegate callInviteReceived:]` method asynchronously with a `TVOCallInvite` object of state `TVOCallInviteStateCanceled` if any of the following events occur:
+    - The call is prematurely disconnected by the caller.
+    - The callee does not accept or reject the call in approximately 30 seconds.
+    - The Voice SDK is unable to establish a connection to Twilio.
+    The `[TVONotificationDelegate callInviteReceived:]` method will not be raised with a `TVOCallInvite` object of state `TVOCallInviteStateCanceled` if the `TVOCallInivte` is accepted or rejected.
+  
+    Failure to register with the new release of the SDK may result in app terminations since "cancel" push notifications will continue to be sent to your application and will not comply with the new PushKit push notification policy. A new error [`TVOErrorUnsupportedCancelMessageError (31302)`](https://www.twilio.com/docs/api/errors/31302) is raised when a "cancel" push notification is provided to `[TwilioVoice handleNotification:delegate:]` via `[TVONotificationDelegate notificationError:]`.
+
+    To register with the new SDK when the app is launched:
+ 
+    **Swift**
+    
+    ```.swift
+    // AppDelegate.swift
+    class AppDelegate: UIResponder, UIApplicationDelegate, PKPushRegistryDelegate {
+        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+            ...
+            self.setupPushRegistry()
+            ...
+        }
+
+        func setupPushRegistry() {
+            var voipRegistry: PKPushRegistry
+            voipRegistry.delegate = self
+            voipRegistry.desiredPushTypes = Set([PKPushType.voIP])
+        }
+
+        func pushRegistry(_ registry: PKPushRegistry, didUpdate credentials: PKPushCredentials, for type: PKPushType) {
+            let accessToken = fetchAccessToken()
+            let deviceToken = credentials.token.map { String(format: "%02x", $0) }.joined()
+
+            TwilioVoice.register(withAccessToken: accessToken, deviceToken: deviceToken) { (error) in
+                ...
+            }
+        }
+    }
+    ```
+
+    **Objective-C**
+
+    ```.objective-c
+    // AppDelegate.m
+    @interface AppDelegate () <PKPushRegistryDelegate>
+    @property (nonatomic, strong) PKPushRegistry *voipRegistry;
+    @end
+
+    @implementation AppDelegate
+
+    - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        ...
+        [self setupPushRegistry];
+        ...
+    }
+
+    - (void)setupPushRegistry {
+        self.voipRegistry = [[PKPushRegistry alloc] initWithQueue:dispatch_get_main_queue()];
+        self.voipRegistry.delegate = self;
+        self.voipRegistry.desiredPushTypes = [NSSet setWithObject:PKPushTypeVoIP];
+    }
+
+    #pragma mark - PKPushRegistryDelegate
+    - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
+        const unsigned *tokenBytes = [credentials.token bytes];
+        self.deviceTokenString = [NSString stringWithFormat:@"<%08x %08x %08x %08x %08x %08x %08x %08x>",
+                                 ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
+                                 ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
+                                 ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+        NSString *accessToken = [self fetchAccessToken];
+
+        [TwilioVoice registerWithAccessToken:accessToken
+                                 deviceToken:self.deviceTokenString
+                                  completion:^(NSError *error) {
+            ...
+        }];
+    }
+
+    @end
+    ```
+
+    Please note that if the app is updated but never launched to perform the registration, the mobile client will still receive "cancel" notifications, which could cause the app terminated by iOS if the VoIP push notification is not reported to CallKit as a new incoming call. To workaround and avoid app being terminated on iOS 13, upon receiving a "cancel" notification you can report a dummy incoming call to CallKit and then end it on the next tick:
+
+    **Swift**
+
+    ```.swift
+    func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
+        if (payload.dictionaryPayload["twi_message_type"] as! String == "twilio.voice.cancel") {
+            let callHandle = CXHandle(type: .generic, value: "alice")
+
+            let callUpdate = CXCallUpdate()
+            callUpdate.remoteHandle = callHandle
+            callUpdate.supportsDTMF = true
+            callUpdate.supportsHolding = true
+            callUpdate.supportsGrouping = false
+            callUpdate.supportsUngrouping = false
+            callUpdate.hasVideo = false
+
+            let uuid = UUID()
+
+            callKitProvider.reportNewIncomingCall(with: uuid, update: callUpdate) { error in
+                ...
+            }
+
+            DispatchQueue.main.async {
+                let endCallAction = CXEndCallAction(call: uuid)
+                let transaction = CXTransaction(action: endCallAction)
+
+                callKitCallController.request(transaction) { error in
+                    ...
+                }
+            }
+
+            return
+        }
+    }
+    ```
+
+    **Objective-C**
+
+    ```.objective-c
+    - (void)pushRegistry:(PKPushRegistry *)registry
+    didReceiveIncomingPushWithPayload:(PKPushPayload *)payload
+                 forType:(PKPushType)type
+    withCompletionHandler:(void (^)(void))completion {
+        if ([payload.dictionaryPayload[@"twi_message_type"] isEqualToString:@"twilio.voice.cancel"]) {
+            CXHandle *callHandle = [[CXHandle alloc] initWithType:CXHandleTypeGeneric value:@"alice"];
+
+            CXCallUpdate *callUpdate = [[CXCallUpdate alloc] init];
+            callUpdate.remoteHandle = callHandle;
+            callUpdate.supportsDTMF = YES;
+            callUpdate.supportsHolding = YES;
+            callUpdate.supportsGrouping = NO;
+            callUpdate.supportsUngrouping = NO;
+            callUpdate.hasVideo = NO;
+
+            NSUUID *uuid = [NSUUID UUID];
+
+            [self.callKitProvider reportNewIncomingCallWithUUID:uuid update:callUpdate completion:^(NSError *error) {
+                ...
+            }];
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                CXEndCallAction *endCallAction = [[CXEndCallAction alloc] initWithCallUUID:uuid];
+                CXTransaction *transaction = [[CXTransaction alloc] initWithAction:endCallAction];
+
+                [self.callKitCallController requestTransaction:transaction completion:^(NSError *error) {
+                    ...
+                }];
+            });
+
+            return;
+        }
     }
     ```
 
