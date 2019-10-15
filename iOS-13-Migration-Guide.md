@@ -45,6 +45,12 @@ If your App supports incoming calls, you **MUST** perform the following steps to
     }
     ```
 
+    Not updating your App's PushKit device token parsing logic will result in the following error message when calling the `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` method:
+
+    ```
+    Error Domain=com.twilio.voice.error Code=31400 "Bad Request" UserInfo={NSLocalizedDescription=Bad Request, NSLocalizedFailureReason=20001 : Address of Apn Binding must be a nonempty string of even number of hexadecimal characters}
+    ```
+
 4. You must register via `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` when your App starts. This ensures that your app no longer receives “cancel” push notifications. A "call" push notification, when passed to `[TwilioVoice handleNotification:delegate:delegateQueue:]`, will return a `TVOCallInvite` object to you synchronously via the `[TVONotificationDelegate callInviteReceived:]` method when `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called. A `TVOCancelledCallInvite` will be raised asynchronously via `[TVONotificationDelegate cancelledCallInviteReceived:error:]` if any of the following events occur:
     - The call is prematurely disconnected by the caller.
     - The callee does not accept or reject the call in approximately 30 seconds.
@@ -236,6 +242,12 @@ If your App supports incoming calls, you **MUST** perform the following steps to
                                                             ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
         ...
     }
+    ```
+
+    Not updating your App's PushKit device token parsing logic will result in the following error message when calling the `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` method:
+
+    ```
+    Error Domain=com.twilio.voice.error Code=31301 "Http status: 400. Unexpected registration response." UserInfo={NSLocalizedDescription=Http status: 400. Unexpected registration response.}
     ```
 
 4. You must register via `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` when your App starts. This ensures that your app no longer receives “cancel” push notifications. A "call" push notification, when passed to `[TwilioVoice handleNotification:delegate:]`, will return a `TVOCallInvite` object to you synchronously via the `[TVONotificationDelegate callInviteReceived:]` method when `[TwilioVoice handleNotification:delegate:]` is called. The SDK will invoke the `[TVONotificationDelegate callInviteReceived:]` method asynchronously with a `TVOCallInvite` object of state `TVOCallInviteStateCanceled` if any of the following events occur:
