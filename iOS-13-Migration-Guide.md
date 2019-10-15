@@ -45,7 +45,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
     }
     ```
 
-    Not updating your App's PushKit device token parsing logic will result in the following error message when being passed to the `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` method:
+    Not updating your App's PushKit device token parsing logic will result in the following error message when calling the `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` method:
 
     ```
     Error Domain=com.twilio.voice.error Code=31400 "Bad Request" UserInfo={NSLocalizedDescription=Bad Request, NSLocalizedFailureReason=20001 : Address of Apn Binding must be a nonempty string of even number of hexadecimal characters}
@@ -244,7 +244,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
     }
     ```
 
-    Not updating your App's PushKit device token parsing logic will result in the following error message when being passed to the `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` method:
+    Not updating your App's PushKit device token parsing logic will result in the following error message when calling the `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` method:
 
     ```
     Error Domain=com.twilio.voice.error Code=31301 "Http status: 400. Unexpected registration response." UserInfo={NSLocalizedDescription=Http status: 400. Unexpected registration response.}
