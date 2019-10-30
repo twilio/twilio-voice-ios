@@ -2,9 +2,9 @@
 
 ## iOS 13 & Xcode 10 or below
 
-If you plan to continue building your app with Xcode 10 you must perform the following action:
+This section provides information required for existings apps built with Xcode 10 or below. In order to comply with iOS 13 you must perform the following step and submit your app using Xcode 10 or below. If your app is built with Xcode 11 you must follow the steps noted in the next [section](#ios-13-&-xcode-11).
 
-1. Update how you decode the PushKit token
+- Update how you decode the PushKit token
 
     **Swift**
     
@@ -40,10 +40,9 @@ If you plan to continue building your app with Xcode 10 you must perform the fol
     Error Domain=com.twilio.voice.error Code=31301 "Http status: 400. Unexpected registration response." UserInfo={NSLocalizedDescription=Http status: 400. Unexpected registration response.}
     ```
 
-
 ## iOS 13 & Xcode 11
 
-This document provides migration guides to support the new [PushKit push notification policy](https://developer.apple.com/documentation/pushkit/pkpushregistrydelegate/2875784-pushregistry) that iOS 13 and Xcode 11 introduced.
+This section provides migration guides to support the new [PushKit push notification policy](https://developer.apple.com/documentation/pushkit/pkpushregistrydelegate/2875784-pushregistry) that iOS 13 and Xcode 11 introduced.
 
 This new policy mandates that Apps built with Xcode 11 and running on iOS 13, which receive VoIP push notifications, must now report all PushKit push notifications to CallKit. Failure to do so will result in iOS 13 terminating the App and barring any further PushKit push notifications. You can read more about this policy and breaking changes [here](https://support.twilio.com/hc/en-us/articles/360035005593-iOS-13-Xcode-11-Breaking-Changes).
 
