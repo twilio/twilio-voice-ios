@@ -1,6 +1,47 @@
 # Migrating to iOS 13
 
-## iOS 13 & Xcode 11 Support
+## iOS 13 & Xcode 10 or below
+
+If you plan to continue building your app with Xcode 10 you must perform the following action:
+
+1. Update how you decode the PushKit token
+
+    **Swift**
+    
+    ```.swift
+    func pushRegistry(_ registry: PKPushRegistry, didUpdate credentials: PKPushCredentials, for type: PKPushType) {
+        ...
+        let deviceToken = credentials.token.map { String(format: "%02x", $0) }.joined()
+        ...
+    }
+    ```
+
+    **Objective-C**
+    
+    ```.objective-c
+    - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
+        ...
+        const unsigned *tokenBytes = [credentials.token bytes];
+        self.deviceTokenString = [NSString stringWithFormat:@"<%08x %08x %08x %08x %08x %08x %08x %08x>", 
+                                                            ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
+                                                            ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
+                                                            ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+        ...
+    }
+    ```
+
+    Not updating your App's PushKit device token parsing logic may result in the following error messages when calling the `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` method for 2.0.X and 3.x/4.x respectively:
+
+    ```
+    Error Domain=com.twilio.voice.error Code=31400 "Bad Request" UserInfo={NSLocalizedDescription=Bad Request, NSLocalizedFailureReason=20001 : Address of Apn Binding must be a nonempty string of even number of hexadecimal characters}
+    ```
+    
+    ```
+    Error Domain=com.twilio.voice.error Code=31301 "Http status: 400. Unexpected registration response." UserInfo={NSLocalizedDescription=Http status: 400. Unexpected registration response.}
+    ```
+
+
+## iOS 13 & Xcode 11
 
 This document provides migration guides to support the new [PushKit push notification policy](https://developer.apple.com/documentation/pushkit/pkpushregistrydelegate/2875784-pushregistry) that iOS 13 and Xcode 11 introduced.
 
