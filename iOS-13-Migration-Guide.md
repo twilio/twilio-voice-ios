@@ -1,5 +1,10 @@
 # Migrating to iOS 13
 
+iOS 13 introduced changes in push notifications handling. This document describes how to migrate to iOS 13 -
+
+- [iOS 13 & Xcode 10 or below](ios-13--xcode-10-or-below)
+- [iOS 13 & Xcode 11](ios-13--xcode-11)
+
 ## iOS 13 & Xcode 10 or below
 
 This section provides information required for existings apps built with Xcode 10 or below. In order to comply with iOS 13 you must perform the following step and submit your app using Xcode 10 or below. If your app is built with Xcode 11 you must follow the steps noted in the next [section](#ios-13--xcode-11).
@@ -30,7 +35,7 @@ This section provides information required for existings apps built with Xcode 1
     }
     ```
 
-    Not updating your App's PushKit device token parsing logic may result in the following error messages when calling the `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` method for 2.0.X and 3.x/4.x respectively:
+    According to our latest findings, not updating your App's PushKit device token parsing logic may result in the following error messages when calling the `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` method for 2.0.X and 3.x/4.x respectively:
 
     ```
     Error Domain=com.twilio.voice.error Code=31400 "Bad Request" UserInfo={NSLocalizedDescription=Bad Request, NSLocalizedFailureReason=20001 : Address of Apn Binding must be a nonempty string of even number of hexadecimal characters}
