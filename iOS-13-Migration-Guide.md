@@ -1,8 +1,53 @@
 # Migrating to iOS 13
 
-## iOS 13 & Xcode 11 Support
+iOS 13 introduced changes in push notifications handling. This document describes how to migrate to iOS 13 -
 
-This document provides migration guides to support the new [PushKit push notification policy](https://developer.apple.com/documentation/pushkit/pkpushregistrydelegate/2875784-pushregistry) that iOS 13 and Xcode 11 introduced.
+- [iOS 13 & Xcode 10 or below](#ios-13--xcode-10-or-below)
+- [iOS 13 & Xcode 11](#ios-13--xcode-11)
+
+## iOS 13 & Xcode 10 or below
+
+This section provides information required for existings apps built with Xcode 10 or below. In order to comply with iOS 13 you must perform the following step and submit your app using Xcode 10 or below. If your app is built with Xcode 11 you must follow the steps noted in the next [section](#ios-13--xcode-11).
+
+- Update how you decode the PushKit token
+
+    **Swift**
+    
+    ```.swift
+    func pushRegistry(_ registry: PKPushRegistry, didUpdate credentials: PKPushCredentials, for type: PKPushType) {
+        ...
+        let deviceToken = credentials.token.map { String(format: "%02x", $0) }.joined()
+        ...
+    }
+    ```
+
+    **Objective-C**
+    
+    ```.objective-c
+    - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
+        ...
+        const unsigned *tokenBytes = [credentials.token bytes];
+        self.deviceTokenString = [NSString stringWithFormat:@"<%08x %08x %08x %08x %08x %08x %08x %08x>", 
+                                                            ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
+                                                            ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
+                                                            ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+        ...
+    }
+    ```
+
+    According to our latest findings, not updating your App's PushKit device token parsing logic may result in the following error messages when calling the `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` method for 2.0.X and 3.x/4.x respectively:
+
+    ```
+    Error Domain=com.twilio.voice.error Code=31400 "Bad Request" UserInfo={NSLocalizedDescription=Bad Request, NSLocalizedFailureReason=20001 : Address of Apn Binding must be a nonempty string of even number of hexadecimal characters}
+    ```
+    
+    ```
+    Error Domain=com.twilio.voice.error Code=31301 "Http status: 400. Unexpected registration response." UserInfo={NSLocalizedDescription=Http status: 400. Unexpected registration response.}
+    ```
+
+## iOS 13 & Xcode 11
+
+This section provides migration guides to support the new [PushKit push notification policy](https://developer.apple.com/documentation/pushkit/pkpushregistrydelegate/2875784-pushregistry) that iOS 13 and Xcode 11 introduced.
 
 This new policy mandates that Apps built with Xcode 11 and running on iOS 13, which receive VoIP push notifications, must now report all PushKit push notifications to CallKit. Failure to do so will result in iOS 13 terminating the App and barring any further PushKit push notifications. You can read more about this policy and breaking changes [here](https://support.twilio.com/hc/en-us/articles/360035005593-iOS-13-Xcode-11-Breaking-Changes).
 
