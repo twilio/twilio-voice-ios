@@ -2,8 +2,8 @@
 
 iOS 13 introduced changes in push notifications handling. This document describes how to migrate to iOS 13 -
 
-- [iOS 13 & Xcode 10 or below](ios-13--xcode-10-or-below)
-- [iOS 13 & Xcode 11](ios-13--xcode-11)
+- [iOS 13 & Xcode 10 or below](#ios-13--xcode-10-or-below)
+- [iOS 13 & Xcode 11](#ios-13--xcode-11)
 
 ## iOS 13 & Xcode 10 or below
 
