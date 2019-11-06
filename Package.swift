@@ -6,11 +6,5 @@ let package = Package(
     name: "TwilioVoice",
     products: [
         .library(name: "TwilioVoice", targets: ["TwilioVoice"])
-    ],
-    targets: [
-        .target(
-            name: "TwilioVoice",
-            path: "Sources"
-        )
     ]
 )
