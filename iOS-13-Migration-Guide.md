@@ -9,7 +9,7 @@ iOS 13 introduced changes in push notifications handling. This document describe
 
 This section provides information required for existings apps built with Xcode 10 or below. In order to comply with iOS 13 you must perform the following step and submit your app using Xcode 10 or below. If your app is built with Xcode 11 you must follow the steps noted in the next [section](#ios-13--xcode-11).
 
-- Update how you decode the PushKit token
+- Update how you decode the PushKit token. Previously we recommended providing the description field of the `PKPushCredentials.token`. Starting with iOS 13 the description format can change and become invalid preventing a user from registering for incoming call notifications.
 
     **Swift**
     
@@ -64,7 +64,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 
 1. Upgrade to Twilio Voice iOS SDK to 5.0.0
 2. Report the call to CallKit. Refer to this [example](https://github.com/twilio/voice-quickstart-swift/tree/master) for how to report the call to CallKit.
-3. Update how you decode the PushKit token
+3. Update how you decode the PushKit token. Previously we recommended providing the description field of the `PKPushCredentials.token`. Starting with iOS 13 the description format can change and become invalid preventing a user from registering for incoming call notifications.
 
     **Swift**
     
