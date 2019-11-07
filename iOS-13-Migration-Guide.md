@@ -9,7 +9,7 @@ iOS 13 introduced changes in push notifications handling. This document describe
 
 This section provides information required for existings apps built with Xcode 10 or below. In order to comply with iOS 13 you must perform the following step and submit your app using Xcode 10 or below. If your app is built with Xcode 11 you must follow the steps noted in the next [section](#ios-13--xcode-11).
 
-- To receive incoming Calls, the Voice SDK expects your app to register by invoking `[TwilioVoice registerWithAccessToken:deviceToken:completion:]`. The `deviceToken` passed to this API must be formatted in a specific format `<12345678 12345678 12345678 12345678 12345678 12345678 12345678 12345678>`. In order to get the device token in this format in iOS 13, update how you decode the PushKit token -
+- To receive incoming Calls, the Voice SDK expects your app to register by invoking `[TwilioVoice registerWithAccessToken:deviceToken:completion:]`. The `deviceToken` passed to this API must be formatted in a specific format `<12345678 12345678 12345678 12345678 12345678 12345678 12345678 12345678>`. To get the device token in this format in iOS 13, update how you decode the PushKit token -
 
     **Swift**
     
@@ -64,7 +64,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 
 1. Upgrade to Twilio Voice iOS SDK to 5.0.0
 2. Report the call to CallKit. Refer to this [example](https://github.com/twilio/voice-quickstart-swift/tree/master) for how to report the call to CallKit.
-3. To receive incoming Calls, the Voice SDK expects your app to register by invoking `[TwilioVoice registerWithAccessToken:deviceToken:completion:]`. The `deviceToken` passed to this API must be formatted in a specific format `<12345678 12345678 12345678 12345678 12345678 12345678 12345678 12345678>`. In order to get the device token in this format in iOS 13, update how you decode the PushKit token -
+3. To receive incoming Calls, the Voice SDK expects your app to register by invoking `[TwilioVoice registerWithAccessToken:deviceToken:completion:]`. The `deviceToken` passed to this API must be formatted in a specific format `<12345678 12345678 12345678 12345678 12345678 12345678 12345678 12345678>`. To get the device token in this format in iOS 13, update how you decode the PushKit token -
 
     **Swift**
     
