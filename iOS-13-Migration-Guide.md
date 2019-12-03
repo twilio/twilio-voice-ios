@@ -5,6 +5,10 @@ iOS 13 introduced changes in push notifications handling. This document describe
 - [iOS 13 & Xcode 10 or below](#ios-13--xcode-10-or-below)
 - [iOS 13 & Xcode 11](#ios-13--xcode-11)
 
+## Register Your App with PushKit at Launch Time
+
+Your app must initialize `PKPushRegistry` with PushKit push type VoIP at the launch time on iOS 13. As mentioned in the [PushKit guidelines](https://developer.apple.com/documentation/pushkit/supporting_pushkit_notifications_in_your_app), the system can’t deliver push notifications to your app until you create a PKPushRegistry object for VoIP push type and set the delegate. If your app delays the initialization of `PKPushRegistry`, your app may receive outdated PushKit push notifications, and if your app decides not to report the received outdated push notifications to CallKit, iOS 13 may terminate your app.
+
 ## iOS 13 & Xcode 10 or below
 
 This section provides information required for existings apps built with Xcode 10 or below. In order to comply with iOS 13 you must perform the following step and submit your app using Xcode 10 or below. If your app is built with Xcode 11 you must follow the steps noted in the next [section](#ios-13--xcode-11).
@@ -52,6 +56,7 @@ This section provides migration guides to support the new [PushKit push notifica
 This new policy mandates that Apps built with Xcode 11 and running on iOS 13, which receive VoIP push notifications, must now report all PushKit push notifications to CallKit. Failure to do so will result in iOS 13 terminating the App and barring any further PushKit push notifications. You can read more about this policy and breaking changes [here](https://support.twilio.com/hc/en-us/articles/360035005593-iOS-13-Xcode-11-Breaking-Changes).
 
 The SDK now handles incoming call cancellations internally. The “cancel” push notification is no longer required or supported by new releases of the SDK.
+
 
 ### Migration Guides
 
@@ -454,7 +459,3 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 You can reference the 2.1 quickstart for [obj-c](https://github.com/twilio/voice-quickstart-objc/tree/2.x) and [swift](https://github.com/twilio/voice-quickstart-swift/tree/2.x) when migrating your application.
 
 A summary of the API changes and new Insights events can be found in the [2.1.0 changelog](https://www.twilio.com/docs/voice/voip-sdk/ios/2x-changelog#210-september-5-2019).
-
-
-## Register Your App with PushKit at Launch Time
- Your app must initialize `PKPushRegistry` with PushKit push type VoIP at the launch time on iOS 13. As mentioned in the [PushKit guidelines](https://developer.apple.com/documentation/pushkit/supporting_pushkit_notifications_in_your_app), the system can’t deliver push notifications to your app until you create a PKPushRegistry object for VoIP push type and set the delegate. If your app delays the initialization of `PKPushRegistry`, your app may receive outdated PushKit push notifications, and if your app decides not to report the received outdated push notifications to CallKit, iOS 13 may terminate your app.
