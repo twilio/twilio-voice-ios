@@ -57,7 +57,6 @@ This new policy mandates that Apps built with Xcode 11 and running on iOS 13, wh
 
 The SDK now handles incoming call cancellations internally. The “cancel” push notification is no longer required or supported by new releases of the SDK.
 
-
 ### Migration Guides
 
 - [Migrate from Twilio Voice 3.x/4.x to 5.0](#migrating-from-twilio-voice-3x4x-to-5x)
