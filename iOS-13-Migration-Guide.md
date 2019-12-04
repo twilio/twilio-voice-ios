@@ -63,8 +63,9 @@ The SDK now handles incoming call cancellations internally. The “cancel” pus
 If your App supports incoming calls, you **MUST** perform the following steps to comply with the new policy:
 
 1. Upgrade to Twilio Voice iOS SDK to 5.0.0
-2. Report the call to CallKit. Refer to this [example](https://github.com/twilio/voice-quickstart-swift/tree/master) for how to report the call to CallKit.
-3. Update how you decode the PushKit token. Previously we recommended providing the description field of the `PKPushCredentials.token`. Starting with iOS 13 the description format can change and become invalid preventing a user from registering for incoming call notifications.
+2. Your app must initialize `PKPushRegistry` with PushKit push type VoIP at the launch time on iOS 13. As mentioned in the [PushKit guidelines](https://developer.apple.com/documentation/pushkit/supporting_pushkit_notifications_in_your_app), the system can’t deliver push notifications to your app until you create a PKPushRegistry object for VoIP push type and set the delegate. If your app delays the initialization of `PKPushRegistry`, your app may receive outdated PushKit push notifications, and if your app decides not to report the received outdated push notifications to CallKit, iOS 13 may terminate your app.
+3. Report the call to CallKit. Refer to this [example](https://github.com/twilio/voice-quickstart-swift/tree/master) for how to report the call to CallKit.
+4. Update how you decode the PushKit token. Previously we recommended providing the description field of the `PKPushCredentials.token`. Starting with iOS 13 the description format can change and become invalid preventing a user from registering for incoming call notifications.
 
     **Swift**
     
@@ -96,7 +97,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
     Error Domain=com.twilio.voice.error Code=31400 "Bad Request" UserInfo={NSLocalizedDescription=Bad Request, NSLocalizedFailureReason=20001 : Address of Apn Binding must be a nonempty string of even number of hexadecimal characters}
     ```
 
-4. You must register via `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` when your App starts. This ensures that your app no longer receives “cancel” push notifications. A "call" push notification, when passed to `[TwilioVoice handleNotification:delegate:delegateQueue:]`, will return a `TVOCallInvite` object to you synchronously via the `[TVONotificationDelegate callInviteReceived:]` method when `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called. A `TVOCancelledCallInvite` will be raised asynchronously via `[TVONotificationDelegate cancelledCallInviteReceived:error:]` if any of the following events occur:
+5. You must register via `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` when your App starts. This ensures that your app no longer receives “cancel” push notifications. A "call" push notification, when passed to `[TwilioVoice handleNotification:delegate:delegateQueue:]`, will return a `TVOCallInvite` object to you synchronously via the `[TVONotificationDelegate callInviteReceived:]` method when `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called. A `TVOCancelledCallInvite` will be raised asynchronously via `[TVONotificationDelegate cancelledCallInviteReceived:error:]` if any of the following events occur:
     - The call is prematurely disconnected by the caller.
     - The callee does not accept or reject the call in approximately 30 seconds.
     - The Voice SDK is unable to establish a connection to Twilio.
@@ -251,7 +252,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
     }
     ```
 
-5. If you were previously toggling `enableInsights` or specifying a `region` via `TVOCallOptions`, you must now set the `insights` and `region` property on the `TwilioVoice` class. You must do so before `[TwilioVoice connectWithAccessToken:delegate:]` or `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called.
+6. If you were previously toggling `enableInsights` or specifying a `region` via `TVOCallOptions`, you must now set the `insights` and `region` property on the `TwilioVoice` class. You must do so before `[TwilioVoice connectWithAccessToken:delegate:]` or `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called.
 
 You can reference the 5.0 quickstart for [obj-c](https://github.com/twilio/voice-quickstart-objc) and [swift](https://github.com/twilio/voice-quickstart-swift) when migrating your application.
 
@@ -262,8 +263,9 @@ A summary of the API changes and new Insights events can be found in the [5.0.0 
 If your App supports incoming calls, you **MUST** perform the following steps to comply with the new policy:
 
 1. Upgrade to Twilio Voice iOS SDK to 2.1.0
-2. Report the call to CallKit. Refer to this [example](https://github.com/twilio/voice-quickstart-swift/tree/2.x) for how to report the call to CallKit.
-3. Update how you decode the PushKit device token
+2. Your app must initialize `PKPushRegistry` with PushKit push type VoIP at the launch time on iOS 13. As mentioned in the [PushKit guidelines](https://developer.apple.com/documentation/pushkit/supporting_pushkit_notifications_in_your_app), the system can’t deliver push notifications to your app until you create a PKPushRegistry object for VoIP push type and set the delegate. If your app delays the initialization of `PKPushRegistry`, your app may receive outdated PushKit push notifications, and if your app decides not to report the received outdated push notifications to CallKit, iOS 13 may terminate your app.
+3. Report the call to CallKit. Refer to this [example](https://github.com/twilio/voice-quickstart-swift/tree/2.x) for how to report the call to CallKit.
+4. Update how you decode the PushKit device token
 
     **Swift**
     
@@ -295,7 +297,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
     Error Domain=com.twilio.voice.error Code=31301 "Http status: 400. Unexpected registration response." UserInfo={NSLocalizedDescription=Http status: 400. Unexpected registration response.}
     ```
 
-4. You must register via `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` when your App starts. This ensures that your app no longer receives “cancel” push notifications. A "call" push notification, when passed to `[TwilioVoice handleNotification:delegate:]`, will return a `TVOCallInvite` object to you synchronously via the `[TVONotificationDelegate callInviteReceived:]` method when `[TwilioVoice handleNotification:delegate:]` is called. The SDK will invoke the `[TVONotificationDelegate callInviteReceived:]` method asynchronously with a `TVOCallInvite` object of state `TVOCallInviteStateCanceled` if any of the following events occur:
+5. You must register via `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` when your App starts. This ensures that your app no longer receives “cancel” push notifications. A "call" push notification, when passed to `[TwilioVoice handleNotification:delegate:]`, will return a `TVOCallInvite` object to you synchronously via the `[TVONotificationDelegate callInviteReceived:]` method when `[TwilioVoice handleNotification:delegate:]` is called. The SDK will invoke the `[TVONotificationDelegate callInviteReceived:]` method asynchronously with a `TVOCallInvite` object of state `TVOCallInviteStateCanceled` if any of the following events occur:
     - The call is prematurely disconnected by the caller.
     - The callee does not accept or reject the call in approximately 30 seconds.
     - The Voice SDK is unable to establish a connection to Twilio.
@@ -449,7 +451,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
     }
     ```
 
-5. If you were specifying a region via the `TwilioVoice.h` region property you must now do so before `[TwilioVoice call:params:delegate:]` or `[TwilioVoice handleNotification:delegate:]` is called.
+6. If you were specifying a region via the `TwilioVoice.h` region property you must now do so before `[TwilioVoice call:params:delegate:]` or `[TwilioVoice handleNotification:delegate:]` is called.
 
 You can reference the 2.1 quickstart for [obj-c](https://github.com/twilio/voice-quickstart-objc/tree/2.x) and [swift](https://github.com/twilio/voice-quickstart-swift/tree/2.x) when migrating your application.
 
