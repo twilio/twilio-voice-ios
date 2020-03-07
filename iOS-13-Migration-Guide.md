@@ -26,11 +26,11 @@ This section provides information required for existings apps built with Xcode 1
     ```.objective-c
     - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
         ...
-        const unsigned *tokenBytes = [credentials.token bytes];
-        self.deviceTokenString = [NSString stringWithFormat:@"<%08x %08x %08x %08x %08x %08x %08x %08x>", 
-                                                            ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
-                                                            ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
-                                                            ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+        const char *tokenBytes = [credentials.token bytes];
+        NSMutableString *deviceTokenString = [NSMutableString string];
+        for (NSUInteger i = 0; i < [credentials.token length]; ++i) {
+            [deviceTokenString appendFormat:@"%02.2hhx", tokenBytes[i]];
+        }
         ...
     }
     ```
@@ -82,11 +82,11 @@ If your App supports incoming calls, you **MUST** perform the following steps to
     ```.objective-c
     - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
         ...
-        const unsigned *tokenBytes = [credentials.token bytes];
-        self.deviceTokenString = [NSString stringWithFormat:@"<%08x %08x %08x %08x %08x %08x %08x %08x>", 
-                                                            ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
-                                                            ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
-                                                            ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+        const char *tokenBytes = [credentials.token bytes];
+        NSMutableString *deviceTokenString = [NSMutableString string];
+        for (NSUInteger i = 0; i < [credentials.token length]; ++i) {
+            [deviceTokenString appendFormat:@"%02.2hhx", tokenBytes[i]];
+        }
         ...
     }
     ```
@@ -160,15 +160,15 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 
     #pragma mark - PKPushRegistryDelegate
     - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
-        const unsigned *tokenBytes = [credentials.token bytes];
-        self.deviceTokenString = [NSString stringWithFormat:@"<%08x %08x %08x %08x %08x %08x %08x %08x>",
-                                 ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
-                                 ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
-                                 ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+        const char *tokenBytes = [credentials.token bytes];
+        NSMutableString *deviceTokenString = [NSMutableString string];
+        for (NSUInteger i = 0; i < [credentials.token length]; ++i) {
+            [deviceTokenString appendFormat:@"%02.2hhx", tokenBytes[i]];
+        }
         NSString *accessToken = [self fetchAccessToken];
 
         [TwilioVoice registerWithAccessToken:accessToken
-                                 deviceToken:self.deviceTokenString
+                                 deviceToken:deviceTokenString
                                   completion:^(NSError *error) {
             ...
         }];
@@ -282,11 +282,11 @@ If your App supports incoming calls, you **MUST** perform the following steps to
     ```.objective-c
     - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
         ...
-        const unsigned *tokenBytes = [credentials.token bytes];
-        self.deviceTokenString = [NSString stringWithFormat:@"<%08x %08x %08x %08x %08x %08x %08x %08x>", 
-                                                            ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
-                                                            ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
-                                                            ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+        const char *tokenBytes = [credentials.token bytes];
+        NSMutableString *deviceTokenString = [NSMutableString string];
+        for (NSUInteger i = 0; i < [credentials.token length]; ++i) {
+            [deviceTokenString appendFormat:@"%02.2hhx", tokenBytes[i]];
+        }
         ...
     }
     ```
@@ -359,15 +359,15 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 
     #pragma mark - PKPushRegistryDelegate
     - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
-        const unsigned *tokenBytes = [credentials.token bytes];
-        self.deviceTokenString = [NSString stringWithFormat:@"<%08x %08x %08x %08x %08x %08x %08x %08x>",
-                                 ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
-                                 ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
-                                 ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+        const char *tokenBytes = [credentials.token bytes];
+        NSMutableString *deviceTokenString = [NSMutableString string];
+        for (NSUInteger i = 0; i < [credentials.token length]; ++i) {
+            [deviceTokenString appendFormat:@"%02.2hhx", tokenBytes[i]];
+        }
         NSString *accessToken = [self fetchAccessToken];
 
         [TwilioVoice registerWithAccessToken:accessToken
-                                 deviceToken:self.deviceTokenString
+                                 deviceToken:deviceTokenString
                                   completion:^(NSError *error) {
             ...
         }];
