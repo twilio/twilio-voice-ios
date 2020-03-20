@@ -45,6 +45,39 @@ This section provides information required for existings apps built with Xcode 1
     Error Domain=com.twilio.voice.error Code=31301 "Http status: 400. Unexpected registration response." UserInfo={NSLocalizedDescription=Http status: 400. Unexpected registration response.}
     ```
 
+    If you are using the Voice iOS SDK 5.3.0 and above, pass the credential data as the argument directly to the `[TwilioVoice registerWithAccessToken:deviceTokenData:completion:]` method.
+
+    **Swift**
+
+    ```.swift
+    func pushRegistry(_ registry: PKPushRegistry, didUpdate credentials: PKPushCredentials, for type: PKPushType) {
+        TwilioVoice.register(withAccessToken: accessToken, deviceToken: credentials.token) { error in
+            if let error = error {
+                NSLog("An error occurred while registering: \(error.localizedDescription)")
+            } else {
+                NSLog("Successfully registered for VoIP push notifications.")
+            }
+        }
+    }
+    ```
+
+    **Objective-C**
+
+    ```.objective-c
+    - (void)pushRegistry:(PKPushRegistry *)registry 
+    didUpdatePushCredentials:(PKPushCredentials *)credentials 
+                 forType:(NSString *)type {
+        [TwilioVoice registerWithAccessToken:accessToken
+                             deviceTokenData:cachedDeviceToken
+                                  completion:^(NSError *error) {
+             if (error) {
+                 NSLog(@"An error occurred while registering: %@", [error localizedDescription]);
+             } else {
+                 NSLog(@"Successfully registered for VoIP push notifications.");
+             }
+         }];
+    ```
+
 ## iOS 13 & Xcode 11
 
 This section provides migration guides to support the new [PushKit push notification policy](https://developer.apple.com/documentation/pushkit/pkpushregistrydelegate/2875784-pushregistry) that iOS 13 and Xcode 11 introduced.
@@ -65,7 +98,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 1. Upgrade to Twilio Voice iOS SDK to 5.0.0
 2. Your app must initialize `PKPushRegistry` with PushKit push type VoIP at the launch time on iOS 13. As mentioned in the [PushKit guidelines](https://developer.apple.com/documentation/pushkit/supporting_pushkit_notifications_in_your_app), the system can’t deliver push notifications to your app until you create a PKPushRegistry object for VoIP push type and set the delegate. If your app delays the initialization of `PKPushRegistry`, your app may receive outdated PushKit push notifications, and if your app decides not to report the received outdated push notifications to CallKit, iOS 13 may terminate your app.
 3. Report the call to CallKit. Refer to this [example](https://github.com/twilio/voice-quickstart-swift/tree/master) for how to report the call to CallKit.
-4. Update how you decode the PushKit token. Previously we recommended providing the description field of the `PKPushCredentials.token`. Starting with iOS 13 the description format can change and become invalid preventing a user from registering for incoming call notifications.
+4. If you are using the Voice iOS SDK 5.2.1 and below, update how you decode the PushKit token. Previously we recommended providing the description field of the `PKPushCredentials.token`. Starting with iOS 13 the description format can change and become invalid preventing a user from registering for incoming call notifications.
 
     **Swift**
     
@@ -97,7 +130,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
     Error Domain=com.twilio.voice.error Code=31400 "Bad Request" UserInfo={NSLocalizedDescription=Bad Request, NSLocalizedFailureReason=20001 : Address of Apn Binding must be a nonempty string of even number of hexadecimal characters}
     ```
 
-5. You must register via `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` when your App starts. This ensures that your app no longer receives “cancel” push notifications. A "call" push notification, when passed to `[TwilioVoice handleNotification:delegate:delegateQueue:]`, will return a `TVOCallInvite` object to you synchronously via the `[TVONotificationDelegate callInviteReceived:]` method when `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called. A `TVOCancelledCallInvite` will be raised asynchronously via `[TVONotificationDelegate cancelledCallInviteReceived:error:]` if any of the following events occur:
+5. You must register via `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` (Voice iOS SDK 5.2.1 and below) or `[TwilioVoice registerWithAccessToken:deviceTokenData:completion:]` (Voice iOS SDK 5.3.0 and above) when your App starts. This ensures that your app no longer receives “cancel” push notifications. A "call" push notification, when passed to `[TwilioVoice handleNotification:delegate:delegateQueue:]`, will return a `TVOCallInvite` object to you synchronously via the `[TVONotificationDelegate callInviteReceived:]` method when `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called. A `TVOCancelledCallInvite` will be raised asynchronously via `[TVONotificationDelegate cancelledCallInviteReceived:error:]` if any of the following events occur:
     - The call is prematurely disconnected by the caller.
     - The callee does not accept or reject the call in approximately 30 seconds.
     - The Voice SDK is unable to establish a connection to Twilio.
@@ -134,6 +167,18 @@ If your App supports incoming calls, you **MUST** perform the following steps to
             }
         }
     }
+    ```
+
+    If you are using the Voice iOS SDK 5.3.0 and above, simply use the credential data:
+
+    ```.swift
+    // AppDelegate.swift
+        func pushRegistry(_ registry: PKPushRegistry, didUpdate credentials: PKPushCredentials, for type: PKPushType) {
+            let accessToken = fetchAccessToken()
+            TwilioVoice.register(withAccessToken: accessToken, deviceToken: credentials.token) { (error) in
+                ...
+            }
+        }
     ```
 
     **Objective-C**
@@ -175,6 +220,20 @@ If your App supports incoming calls, you **MUST** perform the following steps to
     }
 
     @end
+    ```
+
+    If you are using the Voice iOS SDK 5.3.0 and above, simply use the credential data:
+
+    ```
+    #pragma mark - PKPushRegistryDelegate
+    - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
+        NSString *accessToken = [self fetchAccessToken];
+        [TwilioVoice registerWithAccessToken:accessToken
+                             deviceTokenData:credentials.token
+                                  completion:^(NSError *error) {
+            ...
+        }];
+    }
     ```
 
     Please note that if the app is updated but never launched to perform the registration, the mobile client will still receive "cancel" notifications, which could cause the app terminated by iOS if the VoIP push notification is not reported to CallKit as a new incoming call. To workaround and avoid app being terminated on iOS 13, upon receiving a "cancel" notification you can report a dummy incoming call to CallKit and then end it on the next tick:
