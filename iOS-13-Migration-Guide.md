@@ -9,40 +9,37 @@ iOS 13 introduced changes in push notifications handling. This document describe
 
 This section provides information required for existings apps built with Xcode 10 or below. In order to comply with iOS 13 you must perform the following step and submit your app using Xcode 10 or below. If your app is built with Xcode 11 you must follow the steps noted in the next [section](#ios-13--xcode-11).
 
-- Update how you decode the PushKit token. Previously we recommended providing the description field of the `PKPushCredentials.token`. Starting with iOS 13 the description format can change and become invalid preventing a user from registering for incoming call notifications.
+- Pass the credential data as the argument directly to the `[TwilioVoice registerWithAccessToken:deviceTokenData:completion:]` method.
 
     **Swift**
-    
+
     ```.swift
     func pushRegistry(_ registry: PKPushRegistry, didUpdate credentials: PKPushCredentials, for type: PKPushType) {
-        ...
-        let deviceToken = credentials.token.map { String(format: "%02x", $0) }.joined()
-        ...
+        TwilioVoice.register(withAccessToken: accessToken, deviceToken: credentials.token) { error in
+            if let error = error {
+                NSLog("An error occurred while registering: \(error.localizedDescription)")
+            } else {
+                NSLog("Successfully registered for VoIP push notifications.")
+            }
+        }
     }
     ```
 
     **Objective-C**
-    
+
     ```.objective-c
-    - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
-        ...
-        const char *tokenBytes = [credentials.token bytes];
-        NSMutableString *deviceTokenString = [NSMutableString string];
-        for (NSUInteger i = 0; i < [credentials.token length]; ++i) {
-            [deviceTokenString appendFormat:@"%02.2hhx", tokenBytes[i]];
-        }
-        ...
-    }
-    ```
-
-    According to our latest findings, not updating your App's PushKit device token parsing logic may result in the following error messages when calling the `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` method for 2.0.X and 3.x/4.x respectively:
-
-    ```
-    Error Domain=com.twilio.voice.error Code=31400 "Bad Request" UserInfo={NSLocalizedDescription=Bad Request, NSLocalizedFailureReason=20001 : Address of Apn Binding must be a nonempty string of even number of hexadecimal characters}
-    ```
-    
-    ```
-    Error Domain=com.twilio.voice.error Code=31301 "Http status: 400. Unexpected registration response." UserInfo={NSLocalizedDescription=Http status: 400. Unexpected registration response.}
+    - (void)pushRegistry:(PKPushRegistry *)registry 
+    didUpdatePushCredentials:(PKPushCredentials *)credentials 
+                 forType:(NSString *)type {
+        [TwilioVoice registerWithAccessToken:accessToken
+                             deviceTokenData:credentials.token
+                                  completion:^(NSError *error) {
+             if (error) {
+                 NSLog(@"An error occurred while registering: %@", [error localizedDescription]);
+             } else {
+                 NSLog(@"Successfully registered for VoIP push notifications.");
+             }
+         }];
     ```
 
 ## iOS 13 & Xcode 11
@@ -55,49 +52,17 @@ The SDK now handles incoming call cancellations internally. The “cancel” pus
 
 ### Migration Guides
 
-- [Migrate from Twilio Voice 3.x/4.x to 5.0](#migrating-from-twilio-voice-3x4x-to-5x)
+- [Migrate from Twilio Voice 3.x/4.x to 5.x](#migrating-from-twilio-voice-3x4x-to-5x)
 - [Migrate from Twilio Voice 2.0 to 2.1](#migrating-from-twilio-voice-20-to-21)
 
 ## Migrating from Twilio Voice 3.x/4.x to 5.x
 
 If your App supports incoming calls, you **MUST** perform the following steps to comply with the new policy:
 
-1. Upgrade to Twilio Voice iOS SDK to 5.0.0
+1. Upgrade to Twilio Voice iOS SDK to 5.x
 2. Your app must initialize `PKPushRegistry` with PushKit push type VoIP at the launch time on iOS 13. As mentioned in the [PushKit guidelines](https://developer.apple.com/documentation/pushkit/supporting_pushkit_notifications_in_your_app), the system can’t deliver push notifications to your app until you create a PKPushRegistry object for VoIP push type and set the delegate. If your app delays the initialization of `PKPushRegistry`, your app may receive outdated PushKit push notifications, and if your app decides not to report the received outdated push notifications to CallKit, iOS 13 may terminate your app.
 3. Report the call to CallKit. Refer to this [example](https://github.com/twilio/voice-quickstart-swift/tree/master) for how to report the call to CallKit.
-4. Update how you decode the PushKit token. Previously we recommended providing the description field of the `PKPushCredentials.token`. Starting with iOS 13 the description format can change and become invalid preventing a user from registering for incoming call notifications.
-
-    **Swift**
-    
-    ```.swift
-    func pushRegistry(_ registry: PKPushRegistry, didUpdate credentials: PKPushCredentials, for type: PKPushType) {
-        ...
-        let deviceToken = credentials.token.map { String(format: "%02x", $0) }.joined()
-        ...
-    }
-    ```
-
-    **Objective-C**
-    
-    ```.objective-c
-    - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
-        ...
-        const char *tokenBytes = [credentials.token bytes];
-        NSMutableString *deviceTokenString = [NSMutableString string];
-        for (NSUInteger i = 0; i < [credentials.token length]; ++i) {
-            [deviceTokenString appendFormat:@"%02.2hhx", tokenBytes[i]];
-        }
-        ...
-    }
-    ```
-
-    Not updating your App's PushKit device token parsing logic will result in the following error message when calling the `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` method:
-
-    ```
-    Error Domain=com.twilio.voice.error Code=31400 "Bad Request" UserInfo={NSLocalizedDescription=Bad Request, NSLocalizedFailureReason=20001 : Address of Apn Binding must be a nonempty string of even number of hexadecimal characters}
-    ```
-
-5. You must register via `[TwilioVoice registerWithAccessToken:deviceToken:completion:]` when your App starts. This ensures that your app no longer receives “cancel” push notifications. A "call" push notification, when passed to `[TwilioVoice handleNotification:delegate:delegateQueue:]`, will return a `TVOCallInvite` object to you synchronously via the `[TVONotificationDelegate callInviteReceived:]` method when `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called. A `TVOCancelledCallInvite` will be raised asynchronously via `[TVONotificationDelegate cancelledCallInviteReceived:error:]` if any of the following events occur:
+4. You must register via `[TwilioVoice registerWithAccessToken:deviceTokenData:completion:]` when your App starts. This ensures that your app no longer receives "cancel" push notifications. A "call" push notification, when passed to `[TwilioVoice handleNotification:delegate:delegateQueue:]`, will return a `TVOCallInvite` object to you synchronously via the `[TVONotificationDelegate callInviteReceived:]` method when `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called. A `TVOCancelledCallInvite` will be raised asynchronously via `[TVONotificationDelegate cancelledCallInviteReceived:error:]` if any of the following events occur:
     - The call is prematurely disconnected by the caller.
     - The callee does not accept or reject the call in approximately 30 seconds.
     - The Voice SDK is unable to establish a connection to Twilio.
@@ -127,9 +92,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 
         func pushRegistry(_ registry: PKPushRegistry, didUpdate credentials: PKPushCredentials, for type: PKPushType) {
             let accessToken = fetchAccessToken()
-            let deviceToken = credentials.token.map { String(format: "%02x", $0) }.joined()
-
-            TwilioVoice.register(withAccessToken: accessToken, deviceToken: deviceToken) { (error) in
+            TwilioVoice.register(withAccessToken: accessToken, deviceToken: credentials.token) { (error) in
                 ...
             }
         }
@@ -160,15 +123,10 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 
     #pragma mark - PKPushRegistryDelegate
     - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
-        const char *tokenBytes = [credentials.token bytes];
-        NSMutableString *deviceTokenString = [NSMutableString string];
-        for (NSUInteger i = 0; i < [credentials.token length]; ++i) {
-            [deviceTokenString appendFormat:@"%02.2hhx", tokenBytes[i]];
-        }
         NSString *accessToken = [self fetchAccessToken];
 
         [TwilioVoice registerWithAccessToken:accessToken
-                                 deviceToken:deviceTokenString
+                             deviceTokenData:credentials.token
                                   completion:^(NSError *error) {
             ...
         }];
@@ -254,7 +212,7 @@ If your App supports incoming calls, you **MUST** perform the following steps to
 
 6. If you were previously toggling `enableInsights` or specifying a `region` via `TVOCallOptions`, you must now set the `insights` and `region` property on the `TwilioVoice` class. You must do so before `[TwilioVoice connectWithAccessToken:delegate:]` or `[TwilioVoice handleNotification:delegate:delegateQueue:]` is called.
 
-You can reference the 5.0 quickstart for [obj-c](https://github.com/twilio/voice-quickstart-objc) and [swift](https://github.com/twilio/voice-quickstart-swift) when migrating your application.
+You can reference the 5.x quickstart for [obj-c](https://github.com/twilio/voice-quickstart-objc) and [swift](https://github.com/twilio/voice-quickstart-swift) when migrating your application.
 
 A summary of the API changes and new Insights events can be found in the [5.0.0 changelog](https://www.twilio.com/docs/voice/voip-sdk/ios/changelog#500).
 
