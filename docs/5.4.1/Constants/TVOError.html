@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>TVOError Constants Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">Twilio Voice </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Twilio Inc.</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">TVOError Constants Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Declared in</th>
+	<td>TVOError.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+
+                    
+                    <h3 class="subsubtitle method-title">TVOError</h3>
+                    
+					
+					<div class="section section-overview">
+                        <p>An enumeration indicating the errors that can be raised by the SDK.</p>
+					</div>
+					
+					
+                    <div class="section">
+                        <!-- display enum values -->
+                        
+                        <h4 class="method-subtitle">Definition</h4>
+                        <code>typedef NS_ENUM(NSInteger, TVOError ) {<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorAccessTokenInvalidError</a> = 20101,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorAccessTokenHeaderInvalidError</a> = 20102,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorAccessTokenIssuerInvalidError</a> = 20103,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorAccessTokenExpiredError</a> = 20104,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorAccessTokenNotYetValidError</a> = 20105,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorAccessTokenGrantsInvalidError</a> = 20106,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorAccessTokenSignatureInvalidError</a> = 20107,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorAuthFailureCodeError</a> = 20151,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorExpirationTimeExceedsMaxTimeAllowedError</a> = 20157,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorAccessForbiddenError</a> = 20403,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorApplicationNotFoundError</a> = 21218,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorConnectionError</a> = 31005,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorCallCancelledError</a> = 31008,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorTransportError</a> = 31009,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorMalformedRequestError</a> = 31100,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorAuthorizationError</a> = 31201,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorRegistrationError</a> = 31301,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorUnsupportedCancelMessageError</a> = 31302,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorBadRequestError</a> = 31400,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorForbiddenError</a> = 31403,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorNotFoundError</a> = 31404,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorRequestTimeoutError</a> = 31408,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorConflictError</a> = 31409,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorUpgradeRequiredError</a> = 31426,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorTooManyRequestsError</a> = 31429,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorTemporarilyUnavailableError</a> = 31480,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorCallDoesNotExistError</a> = 31481,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorAddressIncompleteError</a> = 31484,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorBusyHereError</a> = 31486,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorRequestTerminatedError</a> = 31487,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorInternalServerError</a> = 31500,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorBadGatewayError</a> = 31502,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorServiceUnavailableError</a> = 31503,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorGatewayTimeoutError</a> = 31504,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorDNSResolutionError</a> = 31530,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorBusyEverywhereError</a> = 31600,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorDeclineError</a> = 31603,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorDoesNotExistAnywhereError</a> = 31604,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorTokenAuthenticationRejected</a> = 51007,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorSignalingConnectionDisconnectedError</a> = 53001,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorMediaClientLocalDescFailedError</a> = 53400,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorMediaServerLocalDescFailedError</a> = 53401,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorMediaClientRemoteDescFailedError</a> = 53402,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorMediaServerRemoteDescFailedError</a> = 53403,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorMediaNoSupportedCodecError</a> = 53404,<br>
+                            
+                            &nbsp;&nbsp; <a href="">TVOErrorMediaConnectionError</a> = 53405,<br>
+                            
+                            };</code>
+                    
+                    </div>
+                    
+                    <div class="section section-methods">
+                        <h4 class="method-subtitle">Constants</h4>
+                        <dl class="termdef">
+                            
+                            <dt><a name="" title="TVOErrorAccessTokenInvalidError"></a><code>TVOErrorAccessTokenInvalidError</code></dt>
+<dd>
+
+
+<p>Invalid Access Token</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorAccessTokenHeaderInvalidError"></a><code>TVOErrorAccessTokenHeaderInvalidError</code></dt>
+<dd>
+
+
+<p>Invalid Access Token header</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorAccessTokenIssuerInvalidError"></a><code>TVOErrorAccessTokenIssuerInvalidError</code></dt>
+<dd>
+
+
+<p>Invalid Access Token issuer/subject</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorAccessTokenExpiredError"></a><code>TVOErrorAccessTokenExpiredError</code></dt>
+<dd>
+
+
+<p>Access Token expired or expiration date invalid</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorAccessTokenNotYetValidError"></a><code>TVOErrorAccessTokenNotYetValidError</code></dt>
+<dd>
+
+
+<p>Access Token not yet valid</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorAccessTokenGrantsInvalidError"></a><code>TVOErrorAccessTokenGrantsInvalidError</code></dt>
+<dd>
+
+
+<p>Invalid Access Token grants</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorAccessTokenSignatureInvalidError"></a><code>TVOErrorAccessTokenSignatureInvalidError</code></dt>
+<dd>
+
+
+<p>Invalid Access Token signature</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorAuthFailureCodeError"></a><code>TVOErrorAuthFailureCodeError</code></dt>
+<dd>
+
+
+<p>Auth Failure Error</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorExpirationTimeExceedsMaxTimeAllowedError"></a><code>TVOErrorExpirationTimeExceedsMaxTimeAllowedError</code></dt>
+<dd>
+
+
+<p>Expiration Time Exceeds Maximum Time Allowed</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorAccessForbiddenError"></a><code>TVOErrorAccessForbiddenError</code></dt>
+<dd>
+
+
+<p>The account lacks permission to access the Twilio API</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorApplicationNotFoundError"></a><code>TVOErrorApplicationNotFoundError</code></dt>
+<dd>
+
+
+<p>Invalid Application Sid</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorConnectionError"></a><code>TVOErrorConnectionError</code></dt>
+<dd>
+
+
+<p>Connection error</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorCallCancelledError"></a><code>TVOErrorCallCancelledError</code></dt>
+<dd>
+
+
+<p>This error indicates that the incoming call was cancelled because it was not answered in time
+or it was accepted/rejected by another application instance registered with the same identity.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorTransportError"></a><code>TVOErrorTransportError</code></dt>
+<dd>
+
+
+<p>No transport available to send or receive messages</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorMalformedRequestError"></a><code>TVOErrorMalformedRequestError</code></dt>
+<dd>
+
+
+<p>Malformed request</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorAuthorizationError"></a><code>TVOErrorAuthorizationError</code></dt>
+<dd>
+
+
+<p>Authorization error</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorRegistrationError"></a><code>TVOErrorRegistrationError</code></dt>
+<dd>
+
+
+<p>Registration error</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorUnsupportedCancelMessageError"></a><code>TVOErrorUnsupportedCancelMessageError</code></dt>
+<dd>
+
+
+<p>Unsupported Cancel Message Error</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorBadRequestError"></a><code>TVOErrorBadRequestError</code></dt>
+<dd>
+
+
+<p>The request could not be understood due to malformed syntax</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorForbiddenError"></a><code>TVOErrorForbiddenError</code></dt>
+<dd>
+
+
+<p>The server understood the request, but is refusing to fulfill it</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorNotFoundError"></a><code>TVOErrorNotFoundError</code></dt>
+<dd>
+
+
+<p>The server has not found anything matching the request</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorRequestTimeoutError"></a><code>TVOErrorRequestTimeoutError</code></dt>
+<dd>
+
+
+<p>A request timeout occurred</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorConflictError"></a><code>TVOErrorConflictError</code></dt>
+<dd>
+
+
+<p>The request could not be processd because of a conflict in the current state of the resource. Another request may be in progress</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorUpgradeRequiredError"></a><code>TVOErrorUpgradeRequiredError</code></dt>
+<dd>
+
+
+<p>This error is raised when an HTTP 426 response is received. The reason for this is most likely because of an incompatible TLS version. To mitigate this, you may need to upgrade the OS or download a more recent version of the SDK.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorTooManyRequestsError"></a><code>TVOErrorTooManyRequestsError</code></dt>
+<dd>
+
+
+<p>Too many requests were sent in a given amount of time</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorTemporarilyUnavailableError"></a><code>TVOErrorTemporarilyUnavailableError</code></dt>
+<dd>
+
+
+<p>The callee is currently unavailable</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorCallDoesNotExistError"></a><code>TVOErrorCallDoesNotExistError</code></dt>
+<dd>
+
+
+<p>The call no longer exists</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorAddressIncompleteError"></a><code>TVOErrorAddressIncompleteError</code></dt>
+<dd>
+
+
+<p>The phone number is malformed</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorBusyHereError"></a><code>TVOErrorBusyHereError</code></dt>
+<dd>
+
+
+<p>The callee is busy</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorRequestTerminatedError"></a><code>TVOErrorRequestTerminatedError</code></dt>
+<dd>
+
+
+<p>The request has terminated as a result of a bye or cancel</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorInternalServerError"></a><code>TVOErrorInternalServerError</code></dt>
+<dd>
+
+
+<p>The server could not fulfill the request due to some unexpected condition</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorBadGatewayError"></a><code>TVOErrorBadGatewayError</code></dt>
+<dd>
+
+
+<p>The server is acting as a gateway or proxy, and received an invalid response from a downstream server while attempting to fulfill the request</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorServiceUnavailableError"></a><code>TVOErrorServiceUnavailableError</code></dt>
+<dd>
+
+
+<p>The server is currently unable to handle the request due to a temporary overloading or maintenance of the server</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorGatewayTimeoutError"></a><code>TVOErrorGatewayTimeoutError</code></dt>
+<dd>
+
+
+<p>The server, while acting as a gateway or proxy, did not receive a timely response from an upstream server</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorDNSResolutionError"></a><code>TVOErrorDNSResolutionError</code></dt>
+<dd>
+
+
+<p>Could not connect to the serever due to DNS resolution failure</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorBusyEverywhereError"></a><code>TVOErrorBusyEverywhereError</code></dt>
+<dd>
+
+
+<p>All possible destinations are busy</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorDeclineError"></a><code>TVOErrorDeclineError</code></dt>
+<dd>
+
+
+<p>The callee does not wish to participate in the call</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorDoesNotExistAnywhereError"></a><code>TVOErrorDoesNotExistAnywhereError</code></dt>
+<dd>
+
+
+<p>The requested callee does not exist anywhere</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorTokenAuthenticationRejected"></a><code>TVOErrorTokenAuthenticationRejected</code></dt>
+<dd>
+
+
+<p>Token authentication is rejected by authentication service</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorSignalingConnectionDisconnectedError"></a><code>TVOErrorSignalingConnectionDisconnectedError</code></dt>
+<dd>
+
+
+<p>Signaling connection disconnected</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorMediaClientLocalDescFailedError"></a><code>TVOErrorMediaClientLocalDescFailedError</code></dt>
+<dd>
+
+
+<p>Client is unable to create or apply a local media description</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorMediaServerLocalDescFailedError"></a><code>TVOErrorMediaServerLocalDescFailedError</code></dt>
+<dd>
+
+
+<p>Server is unable to create or apply a local media description</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorMediaClientRemoteDescFailedError"></a><code>TVOErrorMediaClientRemoteDescFailedError</code></dt>
+<dd>
+
+
+<p>Client is unable to apply a remote media description</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorMediaServerRemoteDescFailedError"></a><code>TVOErrorMediaServerRemoteDescFailedError</code></dt>
+<dd>
+
+
+<p>Server is unable to apply a remote media description</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorMediaNoSupportedCodecError"></a><code>TVOErrorMediaNoSupportedCodecError</code></dt>
+<dd>
+
+
+<p>No supported codec</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="TVOErrorMediaConnectionError"></a><code>TVOErrorMediaConnectionError</code></dt>
+<dd>
+
+
+<p>Media connection failed</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">TVOError.h</code>.
+	</p>
+	
+</dd>
+                            
+                        </dl>
+                    </div>
+                    
+
+                    
+                    
+
+                    
+
+                    
+                    <div class="method-subsection declared-in-section">
+                        <h4 class="method-subtitle">Declared In</h4>
+                        <p><code class="declared-in-ref">TVOError.h</code></p>
+                    </div>
+                    
+                    
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2020 Twilio Inc. All rights reserved. Updated: 2020-06-23</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2900316-33', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
