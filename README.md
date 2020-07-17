@@ -1,5 +1,8 @@
 # Twilio Programmable Voice for iOS
 
+> To make sure your app is ready for iOS 14 please visit [this page](https://github.com/twilio/twilio-voice-ios/issues/56).
+
+
 This repository contains releases for the Twilio Programmable Voice for iOS SDK. These releases can be used on their own, using Carthage or by CocoaPods.
 
 
