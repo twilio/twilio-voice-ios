@@ -30,5 +30,6 @@
   "5.5.1": "https://github.com/twilio/twilio-voice-ios/releases/download/5.5.1/TwilioVoice.framework.zip",
   "6.0.0": "https://github.com/twilio/twilio-voice-ios/releases/download/6.0.0/TwilioVoice.framework.zip",
   "6.0.1": "https://github.com/twilio/twilio-voice-ios/releases/download/6.0.1/TwilioVoice.framework.zip",
-  "6.0.2": "https://github.com/twilio/twilio-voice-ios/releases/download/6.0.2/TwilioVoice.framework.zip"
+  "6.0.2": "https://github.com/twilio/twilio-voice-ios/releases/download/6.0.2/TwilioVoice.framework.zip",
+  "6.1.0": "https://github.com/twilio/twilio-voice-ios/releases/download/6.1.0/TwilioVoice.framework.zip"
 }
