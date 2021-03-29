@@ -1,6 +1,6 @@
 <!-- Check the following before filing an issue -->
 > Before filing an issue please check that the issue is not already addressed by the following:
->  * [Voice Guides](https://www.twilio.com/docs/api/video/ios)
+>  * [Voice Guides](https://www.twilio.com/docs/api/voice-sdk)
 >  * [Github Issues](https://github.com/twilio/twilio-voice-ios/issues)
 >  * [Changelog](https://www.twilio.com/docs/api/voice-sdk/ios/changelog)
 >
