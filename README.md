@@ -50,3 +50,7 @@ Please ensure that you are not sharing any
 or sensitive account information (API keys, credentials, etc.) when reporting an issue.
 
 For general inquiries related to the Voice SDK you can file a [support ticket](https://support.twilio.com/hc/en-us/requests/new).
+
+## License
+
+Twilio Programmable Voice for iOS is distributed under [TWILIO-TOS](https://www.twilio.com/legal/tos).
