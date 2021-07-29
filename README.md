@@ -1,6 +1,6 @@
 # Twilio Programmable Voice for iOS
 
-This repository contains releases for the Twilio Programmable Voice for iOS SDK. These releases can be installed using Swift Package Manager, CocoaPods or manually, as you prefer.
+This repository contains releases for the Twilio Programmable Voice for iOS SDK. These releases can be installed using Swift Package Manager, CocoaPods, Carthage or manually, as you prefer.
 
 ### Swift Package Manager
 
@@ -18,17 +18,6 @@ done
 
 ```
 
-### Carthage
-
-We support integration using Carthage binary frameworks. You can add Programmable Voice for iOS by adding the following line to your Cartfile:
-```
-binary "https://raw.githubusercontent.com/twilio/twilio-voice-ios/Releases/twilio-voice-ios.json"
-```
-
-Then run `carthage bootstrap --use-xcframeworks` (or `carthage update --use-xcframeworks` if you are updating your SDKs)
-
-On your application targets’ _General_ settings tab, in the _Frameworks, Libraries, and Embedded Content_ section, drag and drop `TwilioVoice.xcframework` from the Carthage/Build folder on disk.
- 
 ### CocoaPods
 
 It's easy to install the Voice framework if you manage your dependencies using [CocoaPods](http://cocoapods.org). Simply add the following to your `Podfile`:
@@ -45,13 +34,20 @@ end
 
 Then run `pod install --verbose` to install the dependencies to your project.
 
+### Carthage
+
+We support integration using Carthage binary frameworks. You can add the Voice iOS SDK by adding the following line to your `Cartfile`:
+```
+binary "https://raw.githubusercontent.com/twilio/twilio-voice-ios/Releases/twilio-voice-ios.json"
+```
+
+Then run `carthage bootstrap --use-xcframeworks` (or `carthage update --use-xcframeworks` if you are updating your SDKs)
+
+On your application target's _General_ settings tab, in the `Frameworks, Libraries, and Embedded Content` section, drag and drop `TwilioVoice.xcframework` from the Carthage/Build folder on disk.
+
 ### Manual Integration
 
 See [manual installation](https://www.twilio.com/docs/voice/voip-sdk/ios#manual-install).
-
-### Carthage Integration
-
-Carthage is not currently a supported distribution mechanism for Twilio Voice. Carthage does not currently work with `.xcframeworks` as documented [here](https://github.com/Carthage/Carthage/issues/2890). Once Carthage supports binary `.xcframeworks`, Carthage distribution will be re-added.
 
 ## Issues and Support
 
