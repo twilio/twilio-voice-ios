@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Twilio Voice Reference</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="index.html">Twilio Voice </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="index.html">Twilio Inc.</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">Hierarchy</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">Twilio Voice Reference</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h2>Overview</h2>
+
+
+<p>The Programmable Voice SDK for iOS makes it easy to add Voice over IP (VoIP) calling into an iOS application. The SDK enables the user to make and receive VoIP calls.</p>
+
+<p>The SDK is composed of several key classes illustrated in the image below.</p>
+
+<p>The class <a href="Classes/TwilioVoiceSDK.html">[TwilioVoiceSDK]</a> is the entry point into the SDK and does the following:</p>
+
+<ul>
+<li>Make outgoing calls with <a href="Classes/TwilioVoiceSDK.html#//api/name/connectWithAccessToken:delegate:">[TwilioVoiceSDK connectWithAccessToken:]</a></li>
+<li>Register for push notifications to receive incoming call invitations with <a href="Classes/TwilioVoiceSDK.html#//api/name/registerWithAccessToken:deviceTokenData:completion:">[TwilioVoiceSDK registerWithAccessToken:]</a></li>
+<li>Handle push notifications to receive an incoming call invite or a cancellation to an incoming call invite with <a href="Classes/TwilioVoiceSDK.html#//api/name/handleNotification:delegate:">[TwilioVoiceSDK handleNotification:]</a></li>
+</ul>
+
+
+<p>The class <a href="Classes/TVOCall.html">[TVOCall]</a> represents an outgoing or incoming call.</p>
+
+<p>The class <a href="Classes/TVOCallInvite.html">[TVOCallInvite]</a> represents an invitation to an incoming call. You can accept or reject the call invitation using this class.</p>
+
+<p>The class <a href="Classes/TVOCancelledCallInvite.html">[TVOCancelledCallInvite]</a> represents an invitation to a call that has been subsequently cancelled. A call can be cancelled for several reasons and this is detailed further in the <a href="Classes/TwilioVoiceSDK.html#//api/name/handleNotification:delegate:">[TwilioVoiceSDK handleNotification:]</a> method.</p>
+
+<p><img src="docs/images/call_model.svg" alt="iOS Call Model" /></p>
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">Class References</h2>
+							<ul>
+								
+								<li><a href="Classes/TVOAcceptOptions.html">TVOAcceptOptions</a></li>
+								
+								<li><a href="Classes/TVOAcceptOptionsBuilder.html">TVOAcceptOptionsBuilder</a></li>
+								
+								<li><a href="Classes/TVOAudioCodec.html">TVOAudioCodec</a></li>
+								
+								<li><a href="Classes/TVOAudioFormat.html">TVOAudioFormat</a></li>
+								
+								<li><a href="Classes/TVOAudioOptions.html">TVOAudioOptions</a></li>
+								
+								<li><a href="Classes/TVOAudioOptionsBuilder.html">TVOAudioOptionsBuilder</a></li>
+								
+								<li><a href="Classes/TVOBaseTrackStats.html">TVOBaseTrackStats</a></li>
+								
+								<li><a href="Classes/TVOCall.html">TVOCall</a></li>
+								
+								<li><a href="Classes/TVOCallInvite.html">TVOCallInvite</a></li>
+								
+								<li><a href="Classes/TVOCallMessage.html">TVOCallMessage</a></li>
+								
+								<li><a href="Classes/TVOCallMessageBuilder.html">TVOCallMessageBuilder</a></li>
+								
+								<li><a href="Classes/TVOCallOptions.html">TVOCallOptions</a></li>
+								
+								<li><a href="Classes/TVOCallOptionsBuilder.html">TVOCallOptionsBuilder</a></li>
+								
+								<li><a href="Classes/TVOCallerInfo.html">TVOCallerInfo</a></li>
+								
+								<li><a href="Classes/TVOCancelledCallInvite.html">TVOCancelledCallInvite</a></li>
+								
+								<li><a href="Classes/TVOConnectOptions.html">TVOConnectOptions</a></li>
+								
+								<li><a href="Classes/TVOConnectOptionsBuilder.html">TVOConnectOptionsBuilder</a></li>
+								
+								<li><a href="Classes/TVODefaultAudioDevice.html">TVODefaultAudioDevice</a></li>
+								
+								<li><a href="Classes/TVODefaultLogger.html">TVODefaultLogger</a></li>
+								
+								<li><a href="Classes/TVOIceCandidatePairStats.html">TVOIceCandidatePairStats</a></li>
+								
+								<li><a href="Classes/TVOIceCandidateStats.html">TVOIceCandidateStats</a></li>
+								
+								<li><a href="Classes/TVOIceOptions.html">TVOIceOptions</a></li>
+								
+								<li><a href="Classes/TVOIceOptionsBuilder.html">TVOIceOptionsBuilder</a></li>
+								
+								<li><a href="Classes/TVOIceServer.html">TVOIceServer</a></li>
+								
+								<li><a href="Classes/TVOLocalAudioTrackStats.html">TVOLocalAudioTrackStats</a></li>
+								
+								<li><a href="Classes/TVOLocalTrackStats.html">TVOLocalTrackStats</a></li>
+								
+								<li><a href="Classes/TVOLogParameters.html">TVOLogParameters</a></li>
+								
+								<li><a href="Classes/TVOOpusCodec.html">TVOOpusCodec</a></li>
+								
+								<li><a href="Classes/TVOPcmuCodec.html">TVOPcmuCodec</a></li>
+								
+								<li><a href="Classes/TVOPreflightAggregateStats.html">TVOPreflightAggregateStats</a></li>
+								
+								<li><a href="Classes/TVOPreflightIceCandidate.html">TVOPreflightIceCandidate</a></li>
+								
+								<li><a href="Classes/TVOPreflightNetworkStats.html">TVOPreflightNetworkStats</a></li>
+								
+								<li><a href="Classes/TVOPreflightNetworkTiming.html">TVOPreflightNetworkTiming</a></li>
+								
+								<li><a href="Classes/TVOPreflightOptions.html">TVOPreflightOptions</a></li>
+								
+								<li><a href="Classes/TVOPreflightOptionsBuilder.html">TVOPreflightOptionsBuilder</a></li>
+								
+								<li><a href="Classes/TVOPreflightReport.html">TVOPreflightReport</a></li>
+								
+								<li><a href="Classes/TVOPreflightSelectedIceCandidatePair.html">TVOPreflightSelectedIceCandidatePair</a></li>
+								
+								<li><a href="Classes/TVOPreflightStatsSample.html">TVOPreflightStatsSample</a></li>
+								
+								<li><a href="Classes/TVOPreflightTest.html">TVOPreflightTest</a></li>
+								
+								<li><a href="Classes/TVOPreflightTimeMeasurement.html">TVOPreflightTimeMeasurement</a></li>
+								
+								<li><a href="Classes/TVOPreflightWarning.html">TVOPreflightWarning</a></li>
+								
+								<li><a href="Classes/TVOPreflightWarningCleared.html">TVOPreflightWarningCleared</a></li>
+								
+								<li><a href="Classes/TVORemoteAudioTrackStats.html">TVORemoteAudioTrackStats</a></li>
+								
+								<li><a href="Classes/TVORemoteTrackStats.html">TVORemoteTrackStats</a></li>
+								
+								<li><a href="Classes/TVOStatsReport.html">TVOStatsReport</a></li>
+								
+								<li><a href="Classes/TwilioVoiceSDK.html">TwilioVoiceSDK</a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+							<h2 class="index-title">Protocol References</h2>
+							<ul>
+								
+								<li><a href="Protocols/TVOAudioDevice.html">TVOAudioDevice</a></li>
+								
+								<li><a href="Protocols/TVOAudioDeviceCapturer.html">TVOAudioDeviceCapturer</a></li>
+								
+								<li><a href="Protocols/TVOAudioDeviceRenderer.html">TVOAudioDeviceRenderer</a></li>
+								
+								<li><a href="Protocols/TVOCallDelegate.html">TVOCallDelegate</a></li>
+								
+								<li><a href="Protocols/TVOCallMessageDelegate.html">TVOCallMessageDelegate</a></li>
+								
+								<li><a href="Protocols/TVOLogger.html">TVOLogger</a></li>
+								
+								<li><a href="Protocols/TVONotificationDelegate.html">TVONotificationDelegate</a></li>
+								
+								<li><a href="Protocols/TVOPreflightDelegate.html">TVOPreflightDelegate</a></li>
+								
+							</ul>
+							
+
+							
+							<h2 class="index-title">Constant References</h2>
+							<ul>
+								
+									<li><a href="Constants/TVOCallFeedbackIssue.html">TVOCallFeedbackIssue</a></li>
+								
+									<li><a href="Constants/TVOCallFeedbackScore.html">TVOCallFeedbackScore</a></li>
+								
+									<li><a href="Constants/TVOCallQualityWarning.html">TVOCallQualityWarning</a></li>
+								
+									<li><a href="Constants/TVOCallState.html">TVOCallState</a></li>
+								
+									<li><a href="Constants/TVOIceCandidatePairState.html">TVOIceCandidatePairState</a></li>
+								
+									<li><a href="Constants/TVOIceTransportPolicy.html">TVOIceTransportPolicy</a></li>
+								
+									<li><a href="Constants/TVOLogLevel.html">TVOLogLevel</a></li>
+								
+									<li><a href="Constants/TVOLogModule.html">TVOLogModule</a></li>
+								
+									<li><a href="Constants/TVOPreflightCallQuality.html">TVOPreflightCallQuality</a></li>
+								
+									<li><a href="Constants/TVOPreflightTestStatus.html">TVOPreflightTestStatus</a></li>
+								
+							</ul>
+							
+
+							
+							<h2 class="index-title">Category References</h2>
+							<ul>
+								
+								<li><a href="Categories/TVOCall+CallKit.html">TVOCall(CallKit)</a></li>
+								
+								<li><a href="Categories/TVOCallInvite+CallKit.html">TVOCallInvite(CallKit)</a></li>
+								
+								<li><a href="Categories/TVOCallInvite+Utility.html">TVOCallInvite(Utility)</a></li>
+								
+								<li><a href="Categories/TVOCallOptions+CallKit.html">TVOCallOptions(CallKit)</a></li>
+								
+								<li><a href="Categories/TVOCallOptionsBuilder+CallKit.html">TVOCallOptionsBuilder(CallKit)</a></li>
+								
+								<li><a href="Categories/TwilioVoiceSDK+CallKitIntegration.html">TwilioVoiceSDK(CallKitIntegration)</a></li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">Copyright &copy; 2024 Twilio Inc. All rights reserved. Updated: 2024-10-17</p>
+							
+							
+							<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2900316-33', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
