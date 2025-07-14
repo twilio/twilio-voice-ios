@@ -1,49 +1,34 @@
 # Twilio Programmable Voice for iOS
 
-This repository contains releases for the Twilio Programmable Voice for iOS SDK. These releases can be installed using Swift Package Manager, CocoaPods, Carthage or manually, as you prefer.
+This repository contains releases for the Twilio Programmable Voice for iOS SDK. These releases can be installed using Swift Package Manager, CocoaPods or manually, as you prefer.
 
 ### Swift Package Manager
 
-You can add Programmable Voice for iOS by adding the `https://github.com/twilio/twilio-voice-ios` repository as a Swift Package. 
+You can add Programmable Voice for iOS by adding the `https://github.com/twilio/twilio-voice-ios` repository as a Swift Package. You can choose `TwilioVoice` in **Frameworks, Libraries and Embedded Content** if you want to integrate the dynamic framework version of the SDK, or `TwilioVoice-static` if you want the static framework version.
 
-In your *Build Settings*, you will also need to modify `Other Linker Flags` to include `-ObjC`.
-
-As of the latest release of Xcode (currently 12.4), there is a [known issue](https://bugs.swift.org/browse/SR-13343) with consuming binary frameworks distributed via Swift Package Manager. The current workaround to this issue is to add a `Run Script Phase` to the `Build Phases` of your Xcode project. This `Run Script Phase` should come **after** the `Embed Frameworks` build phase. This new `Run Script Phase` should contain the following code:
-
-```sh
-find "${CODESIGNING_FOLDER_PATH}" -name '*.framework' -print0 | while read -d $'\0' framework
-do
-    codesign --force --deep --sign "${EXPANDED_CODE_SIGN_IDENTITY}" --preserve-metadata=identifier,entitlements --timestamp=none "${framework}"
-done
-
-```
+If you are using the static framework, add `SystemConfiguration.framework` to **Frameworks, Libraries and Embedded Content**.
 
 ### CocoaPods
 
 It's easy to install the Voice framework if you manage your dependencies using [CocoaPods](http://cocoapods.org). Simply add the following to your `Podfile`:
 
-~~~.rb
+~~~rb
 source 'https://github.com/cocoapods/specs'
 
 target 'TARGET_NAME' do
   use_frameworks!
 
-  pod 'TwilioVoice', '~> 6.2.0'
+  pod 'TwilioVoice', '~> 6.13'
 end
 ~~~
 
 Then run `pod install --verbose` to install the dependencies to your project.
 
-### Carthage
+To integrate the static framework, use the `TwilioVoice-static` pod:
 
-We support integration using Carthage binary frameworks. You can add the Voice iOS SDK by adding the following line to your `Cartfile`:
+```rb
+  pod 'TwilioVoice-static', '~> 6.13'
 ```
-binary "https://raw.githubusercontent.com/twilio/twilio-voice-ios/Releases/twilio-voice-ios.json"
-```
-
-Then run `carthage bootstrap --use-xcframeworks` (or `carthage update --use-xcframeworks` if you are updating your SDKs)
-
-On your application target's _General_ settings tab, in the `Frameworks, Libraries, and Embedded Content` section, drag and drop `TwilioVoice.xcframework` from the Carthage/Build folder on disk.
 
 ### Manual Integration
 
