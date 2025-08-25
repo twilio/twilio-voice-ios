@@ -11,20 +11,20 @@ let package = Package(
         .library(
             name: "TwilioVoice",
             targets: ["TwilioVoice"]),
-        .library(
+         .library(
             name: "TwilioVoice-static",
             targets: ["TwilioVoice"]),
     ],
     targets: [
         .binaryTarget(
             name: "TwilioVoice",
-            url: "https://github.com/twilio/twilio-voice-ios/releases/download/6.13.2/TwilioVoice.xcframework.zip",
-            checksum: "e04b4790ebe35b8e66291d503ed2570dd6181d85dd4ab1f60b3c8ec2e0a571b1"
+            url: "https://github.com/twilio/twilio-voice-ios/releases/download/6.13.3/TwilioVoice.xcframework.zip",
+            checksum: "d9b041dbebdb2aaa9e0d1a61503f076136118702e4dafd6e538b6e5ee6fe4382"
         ),
         .binaryTarget(
             name: "TwilioVoice-static",
-            url: "https://github.com/twilio/twilio-voice-ios/releases/download/6.13.2/TwilioVoice-static.xcframework.zip",
-            checksum: "c25d14bd4b7c46c0d9f6caca2e80ad53cba95fd6f37d2043ccc97bd04cda5aa1"
+            url: "https://github.com/twilio/twilio-voice-ios/releases/download/6.13.3/TwilioVoice-static.xcframework.zip",
+            checksum: "ae8b9a0a24a7732bdc1cf1af0f781898b0c50d3e1ace362369e47a33f4e88b14"
         )
     ]
 )
