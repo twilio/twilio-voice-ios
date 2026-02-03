@@ -64,5 +64,6 @@
   "6.13.2": "https://github.com/twilio/twilio-voice-ios/releases/download/6.13.2/TwilioVoice.xcframework.zip",
   "6.13.3": "https://github.com/twilio/twilio-voice-ios/releases/download/6.13.3/TwilioVoice.xcframework.zip",
   "6.13.4": "https://github.com/twilio/twilio-voice-ios/releases/download/6.13.4/TwilioVoice.xcframework.zip",
-  "6.13.5": "https://github.com/twilio/twilio-voice-ios/releases/download/6.13.5/TwilioVoice.xcframework.zip"
+  "6.13.5": "https://github.com/twilio/twilio-voice-ios/releases/download/6.13.5/TwilioVoice.xcframework.zip",
+  "6.13.6": "https://github.com/twilio/twilio-voice-ios/releases/download/6.13.6/TwilioVoice.xcframework.zip"
 }
