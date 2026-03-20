@@ -18,7 +18,7 @@ source 'https://github.com/cocoapods/specs'
 target 'TARGET_NAME' do
   use_frameworks!
 
-  pod 'TwilioVoice', '~> 6.13'
+  pod 'TwilioVoice', '~> 0.9'
 end
 ~~~
 
