@@ -13,7 +13,7 @@ let package = Package(
             targets: ["TwilioVoice"]),
          .library(
             name: "TwilioVoice-static",
-            targets: ["TwilioVoice"]),
+            targets: ["TwilioVoice-static"]),
     ],
     targets: [
         .binaryTarget(
