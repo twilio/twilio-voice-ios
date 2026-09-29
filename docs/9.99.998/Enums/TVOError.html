@@ -1,0 +1,2083 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TVOError Enumeration Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Enum/TVOError" class="dashAnchor"></a>
+    <a title="TVOError Enumeration Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Twilio Voice</a> (97% documented)</p>
+        <div class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">TwilioVoice</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        <a href="../Enums.html">Enumerations</a>
+        <img id="carat" src="../img/carat.png" alt=""/>
+        TVOError Enumeration Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/TVOAcceptOptions.html">TVOAcceptOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOAcceptOptionsBuilder.html">TVOAcceptOptionsBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOAudioCodec.html">TVOAudioCodec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOAudioFormat.html">TVOAudioFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOAudioOptions.html">TVOAudioOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOAudioOptionsBuilder.html">TVOAudioOptionsBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOBaseTrackStats.html">TVOBaseTrackStats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOCall.html">TVOCall</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOCallInvite.html">TVOCallInvite</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOCallMessage.html">TVOCallMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOCallMessageBuilder.html">TVOCallMessageBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOCallOptions.html">TVOCallOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOCallOptionsBuilder.html">TVOCallOptionsBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOCallerInfo.html">TVOCallerInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOCancelledCallInvite.html">TVOCancelledCallInvite</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOConnectOptions.html">TVOConnectOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOConnectOptionsBuilder.html">TVOConnectOptionsBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVODefaultAudioDevice.html">TVODefaultAudioDevice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVODefaultLogger.html">TVODefaultLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOIceCandidatePairStats.html">TVOIceCandidatePairStats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOIceCandidateStats.html">TVOIceCandidateStats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOIceOptions.html">TVOIceOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOIceOptionsBuilder.html">TVOIceOptionsBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOIceServer.html">TVOIceServer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOLocalAudioTrackStats.html">TVOLocalAudioTrackStats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOLocalTrackStats.html">TVOLocalTrackStats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOLogParameters.html">TVOLogParameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOOpusCodec.html">TVOOpusCodec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOPcmuCodec.html">TVOPcmuCodec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOPreflightAggregateStats.html">TVOPreflightAggregateStats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOPreflightIceCandidate.html">TVOPreflightIceCandidate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOPreflightNetworkStats.html">TVOPreflightNetworkStats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOPreflightNetworkTiming.html">TVOPreflightNetworkTiming</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOPreflightOptions.html">TVOPreflightOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOPreflightOptionsBuilder.html">TVOPreflightOptionsBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOPreflightReport.html">TVOPreflightReport</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOPreflightSelectedIceCandidatePair.html">TVOPreflightSelectedIceCandidatePair</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOPreflightStatsSample.html">TVOPreflightStatsSample</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOPreflightTest.html">TVOPreflightTest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOPreflightTimeMeasurement.html">TVOPreflightTimeMeasurement</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOPreflightWarning.html">TVOPreflightWarning</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOPreflightWarningCleared.html">TVOPreflightWarningCleared</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVORemoteAudioTrackStats.html">TVORemoteAudioTrackStats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVORemoteTrackStats.html">TVORemoteTrackStats</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TVOStatsReport.html">TVOStatsReport</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TwilioVoiceSDK.html">TwilioVoiceSDK</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@TVOAudioChannelsMono">TVOAudioChannelsMono</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@TVOAudioChannelsStereo">TVOAudioChannelsStereo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@TVOAudioSampleRate16000">TVOAudioSampleRate16000</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@TVOAudioSampleRate24000">TVOAudioSampleRate24000</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@TVOAudioSampleRate32000">TVOAudioSampleRate32000</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@TVOAudioSampleRate44100">TVOAudioSampleRate44100</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@TVOAudioSampleRate48000">TVOAudioSampleRate48000</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@TVOAudioSampleRate8000">TVOAudioSampleRate8000</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:TVODefaultAudioDevice.h@kTVODefaultAVAudioSessionConfigurationBlock">kTVODefaultAVAudioSessionConfigurationBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:TVODefaultAudioDevice.h@kTVODefaultAudioDeviceIOBufferDurationSimulator">kTVODefaultAudioDeviceIOBufferDurationSimulator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:TVODefaultAudioDevice.h@kTVODefaultAudioDeviceSampleRateSimulator">kTVODefaultAudioDeviceSampleRateSimulator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kTVOErrorDomain">kTVOErrorDomain</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/TVOCallFeedbackIssue.html">TVOCallFeedbackIssue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TVOCallFeedbackScore.html">TVOCallFeedbackScore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TVOCallQualityWarning.html">TVOCallQualityWarning</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TVOCallState.html">TVOCallState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TVOError.html">TVOError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TVOIceCandidatePairState.html">TVOIceCandidatePairState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TVOIceTransportPolicy.html">TVOIceTransportPolicy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TVOLogLevel.html">TVOLogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TVOLogModule.html">TVOLogModule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TVOPreflightCallQuality.html">TVOPreflightCallQuality</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TVOPreflightTestStatus.html">TVOPreflightTestStatus</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/c:objc(pl)TVOAudioDevice">TVOAudioDevice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TVOAudioDeviceCapturer.html">TVOAudioDeviceCapturer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TVOAudioDeviceRenderer.html">TVOAudioDeviceRenderer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TVOCallDelegate.html">TVOCallDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TVOCallMessageDelegate.html">TVOCallMessageDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TVOLogger.html">TVOLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TVONotificationDelegate.html">TVONotificationDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TVOPreflightDelegate.html">TVOPreflightDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:TVODefaultAudioDevice.h@T@TVOAVAudioSessionConfigurationBlock">TVOAVAudioSessionConfigurationBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:TVOAcceptOptions.h@T@TVOAcceptOptionsBuilderBlock">TVOAcceptOptionsBuilderBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:TVOAudioDevice.h@T@TVOAudioDeviceContext">TVOAudioDeviceContext</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:TVOAudioDevice.h@T@TVOAudioDeviceWorkerBlock">TVOAudioDeviceWorkerBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:TVOAudioOptions.h@T@TVOAudioOptionsBuilderBlock">TVOAudioOptionsBuilderBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:TVOCall.h@T@TVOCallGetStatsBlock">TVOCallGetStatsBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:TVOCallMessage.h@T@TVOCallMessageBuilderBlock">TVOCallMessageBuilderBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:TVOConnectOptions.h@T@TVOConnectOptionsBuilderBlock">TVOConnectOptionsBuilderBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:TVOIceOptions.h@T@TVOIceOptionsBuilderBlock">TVOIceOptionsBuilderBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:TVOPreflightOptions.h@T@TVOPreflightOptionsBuilderBlock">TVOPreflightOptionsBuilderBlock</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@TVOAudioDeviceExecuteWorkerBlock">TVOAudioDeviceExecuteWorkerBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@TVOAudioDeviceFormatChanged">TVOAudioDeviceFormatChanged</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@TVOAudioDeviceReadRenderData">TVOAudioDeviceReadRenderData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@TVOAudioDeviceReinitialize">TVOAudioDeviceReinitialize</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@TVOAudioDeviceWriteCaptureData">TVOAudioDeviceWriteCaptureData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@TVOAudioSessionActivated">TVOAudioSessionActivated</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@TVOAudioSessionDeactivated">TVOAudioSessionDeactivated</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>TVOError</h1>
+              <div class="declaration">
+                <div class="language">
+                  <p class="aside-title">Objective-C</p>
+                  <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">TVOError</span> <span class="o">:</span> <span class="n">NSInteger</span> <span class="p">{}</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">TVOError</span><span class="o">.</span><span class="kt">Code</span><span class="o">.</span><span class="n">_ErrorType</span> <span class="o">=</span> <span class="kt">TVOError</span></code></pre>
+
+                </div>
+              </div>
+            <p>An enumeration indicating the errors that can be raised by the SDK.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorInvalidCallerIDError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorInvalidCallerIDError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorInvalidCallerIDError">TVOErrorInvalidCallerIDError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Invalid Caller ID</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorInvalidCallerIDError</span> <span class="o">=</span> <span class="mi">13214</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorInvalidCallerIDError</span> <span class="o">=</span> <span class="mi">13214</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorInvalidPhoneNumberError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorInvalidPhoneNumberError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorInvalidPhoneNumberError">TVOErrorInvalidPhoneNumberError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Invalid Phone Number</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorInvalidPhoneNumberError</span> <span class="o">=</span> <span class="mi">13224</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorInvalidPhoneNumberError</span> <span class="o">=</span> <span class="mi">13224</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorAccessTokenInvalidError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorAccessTokenInvalidError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorAccessTokenInvalidError">TVOErrorAccessTokenInvalidError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Invalid Access Token</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorAccessTokenInvalidError</span> <span class="o">=</span> <span class="mi">20101</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorAccessTokenInvalidError</span> <span class="o">=</span> <span class="mi">20101</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorAccessTokenHeaderInvalidError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorAccessTokenHeaderInvalidError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorAccessTokenHeaderInvalidError">TVOErrorAccessTokenHeaderInvalidError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Invalid Access Token header</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorAccessTokenHeaderInvalidError</span> <span class="o">=</span> <span class="mi">20102</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorAccessTokenHeaderInvalidError</span> <span class="o">=</span> <span class="mi">20102</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorAccessTokenIssuerInvalidError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorAccessTokenIssuerInvalidError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorAccessTokenIssuerInvalidError">TVOErrorAccessTokenIssuerInvalidError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Invalid Access Token issuer/subject</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorAccessTokenIssuerInvalidError</span> <span class="o">=</span> <span class="mi">20103</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorAccessTokenIssuerInvalidError</span> <span class="o">=</span> <span class="mi">20103</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorAccessTokenExpiredError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorAccessTokenExpiredError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorAccessTokenExpiredError">TVOErrorAccessTokenExpiredError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Access Token expired or expiration date invalid</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorAccessTokenExpiredError</span> <span class="o">=</span> <span class="mi">20104</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorAccessTokenExpiredError</span> <span class="o">=</span> <span class="mi">20104</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorAccessTokenNotYetValidError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorAccessTokenNotYetValidError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorAccessTokenNotYetValidError">TVOErrorAccessTokenNotYetValidError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Access Token not yet valid</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorAccessTokenNotYetValidError</span> <span class="o">=</span> <span class="mi">20105</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorAccessTokenNotYetValidError</span> <span class="o">=</span> <span class="mi">20105</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorAccessTokenGrantsInvalidError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorAccessTokenGrantsInvalidError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorAccessTokenGrantsInvalidError">TVOErrorAccessTokenGrantsInvalidError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Invalid Access Token grants</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorAccessTokenGrantsInvalidError</span> <span class="o">=</span> <span class="mi">20106</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorAccessTokenGrantsInvalidError</span> <span class="o">=</span> <span class="mi">20106</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorAccessTokenSignatureInvalidError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorAccessTokenSignatureInvalidError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorAccessTokenSignatureInvalidError">TVOErrorAccessTokenSignatureInvalidError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Invalid Access Token signature</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorAccessTokenSignatureInvalidError</span> <span class="o">=</span> <span class="mi">20107</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorAccessTokenSignatureInvalidError</span> <span class="o">=</span> <span class="mi">20107</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorAuthFailureCodeError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorAuthFailureCodeError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorAuthFailureCodeError">TVOErrorAuthFailureCodeError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Auth Failure Error</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorAuthFailureCodeError</span> <span class="o">=</span> <span class="mi">20151</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorAuthFailureCodeError</span> <span class="o">=</span> <span class="mi">20151</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorExpirationTimeExceedsMaxTimeAllowedError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorExpirationTimeExceedsMaxTimeAllowedError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorExpirationTimeExceedsMaxTimeAllowedError">TVOErrorExpirationTimeExceedsMaxTimeAllowedError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Expiration Time Exceeds Maximum Time Allowed</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorExpirationTimeExceedsMaxTimeAllowedError</span> <span class="o">=</span> <span class="mi">20157</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorExpirationTimeExceedsMaxTimeAllowedError</span> <span class="o">=</span> <span class="mi">20157</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorAccessForbiddenError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorAccessForbiddenError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorAccessForbiddenError">TVOErrorAccessForbiddenError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The account lacks permission to access the Twilio API</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorAccessForbiddenError</span> <span class="o">=</span> <span class="mi">20403</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorAccessForbiddenError</span> <span class="o">=</span> <span class="mi">20403</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorApplicationNotFoundError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorApplicationNotFoundError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorApplicationNotFoundError">TVOErrorApplicationNotFoundError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Invalid Application Sid</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorApplicationNotFoundError</span> <span class="o">=</span> <span class="mi">21218</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorApplicationNotFoundError</span> <span class="o">=</span> <span class="mi">21218</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorConnectionError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorConnectionError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorConnectionError">TVOErrorConnectionError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Connection error</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorConnectionError</span> <span class="o">=</span> <span class="mi">31005</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorConnectionError</span> <span class="o">=</span> <span class="mi">31005</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorCallCancelledError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorCallCancelledError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorCallCancelledError">TVOErrorCallCancelledError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Unable to answer because the call has ended</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorCallCancelledError</span> <span class="o">=</span> <span class="mi">31008</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorCallCancelledError</span> <span class="o">=</span> <span class="mi">31008</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorTransportError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorTransportError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorTransportError">TVOErrorTransportError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; No transport available to send or receive messages</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorTransportError</span> <span class="o">=</span> <span class="mi">31009</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorTransportError</span> <span class="o">=</span> <span class="mi">31009</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorMalformedRequestError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorMalformedRequestError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorMalformedRequestError">TVOErrorMalformedRequestError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Malformed request</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorMalformedRequestError</span> <span class="o">=</span> <span class="mi">31100</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorMalformedRequestError</span> <span class="o">=</span> <span class="mi">31100</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorAuthorizationError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorAuthorizationError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorAuthorizationError">TVOErrorAuthorizationError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Authorization error</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorAuthorizationError</span> <span class="o">=</span> <span class="mi">31201</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorAuthorizationError</span> <span class="o">=</span> <span class="mi">31201</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorRateExceededError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorRateExceededError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorRateExceededError">TVOErrorRateExceededError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Rate exceeded authorized limit.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorRateExceededError</span> <span class="o">=</span> <span class="mi">31206</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorRateExceededError</span> <span class="o">=</span> <span class="mi">31206</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorCallMessageTypeInvalidError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorCallMessageTypeInvalidError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorCallMessageTypeInvalidError">TVOErrorCallMessageTypeInvalidError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Call message type is invalid.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorCallMessageTypeInvalidError</span> <span class="o">=</span> <span class="mi">31210</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorCallMessageTypeInvalidError</span> <span class="o">=</span> <span class="mi">31210</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorCallMessageCallInUnexpectedStateError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorCallMessageCallInUnexpectedStateError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorCallMessageCallInUnexpectedStateError">TVOErrorCallMessageCallInUnexpectedStateError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Call is in unexpected state.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorCallMessageCallInUnexpectedStateError</span> <span class="o">=</span> <span class="mi">31211</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorCallMessageCallInUnexpectedStateError</span> <span class="o">=</span> <span class="mi">31211</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorCallMessageEventPayloadSizeExceededError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorCallMessageEventPayloadSizeExceededError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorCallMessageEventPayloadSizeExceededError">TVOErrorCallMessageEventPayloadSizeExceededError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Call message event payload size exceeded authorized limit.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorCallMessageEventPayloadSizeExceededError</span> <span class="o">=</span> <span class="mi">31212</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorCallMessageEventPayloadSizeExceededError</span> <span class="o">=</span> <span class="mi">31212</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorRegistrationError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorRegistrationError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorRegistrationError">TVOErrorRegistrationError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Registration error</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorRegistrationError</span> <span class="o">=</span> <span class="mi">31301</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorRegistrationError</span> <span class="o">=</span> <span class="mi">31301</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorUnsupportedCancelMessageError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorUnsupportedCancelMessageError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorUnsupportedCancelMessageError">TVOErrorUnsupportedCancelMessageError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Unsupported Cancel Message Error</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorUnsupportedCancelMessageError</span> <span class="o">=</span> <span class="mi">31302</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorUnsupportedCancelMessageError</span> <span class="o">=</span> <span class="mi">31302</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorBadRequestError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorBadRequestError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorBadRequestError">TVOErrorBadRequestError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The request could not be understood due to malformed syntax</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorBadRequestError</span> <span class="o">=</span> <span class="mi">31400</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorBadRequestError</span> <span class="o">=</span> <span class="mi">31400</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorForbiddenError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorForbiddenError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorForbiddenError">TVOErrorForbiddenError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The server understood the request, but is refusing to fulfill it</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorForbiddenError</span> <span class="o">=</span> <span class="mi">31403</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorForbiddenError</span> <span class="o">=</span> <span class="mi">31403</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorNotFoundError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorNotFoundError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorNotFoundError">TVOErrorNotFoundError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The server has not found anything matching the request</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorNotFoundError</span> <span class="o">=</span> <span class="mi">31404</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorNotFoundError</span> <span class="o">=</span> <span class="mi">31404</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorRequestTimeoutError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorRequestTimeoutError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorRequestTimeoutError">TVOErrorRequestTimeoutError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; A request timeout occurred</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorRequestTimeoutError</span> <span class="o">=</span> <span class="mi">31408</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorRequestTimeoutError</span> <span class="o">=</span> <span class="mi">31408</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorConflictError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorConflictError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorConflictError">TVOErrorConflictError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The request could not be processed because of a conflict in the current state of the resource. Another request may be in progress</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorConflictError</span> <span class="o">=</span> <span class="mi">31409</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorConflictError</span> <span class="o">=</span> <span class="mi">31409</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorUpgradeRequiredError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorUpgradeRequiredError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorUpgradeRequiredError">TVOErrorUpgradeRequiredError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; This error is raised when an HTTP 426 response is received. The reason for this is most likely because of an incompatible TLS version. To mitigate this, you may need to upgrade the OS or download a more recent version of the SDK.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorUpgradeRequiredError</span> <span class="o">=</span> <span class="mi">31426</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorUpgradeRequiredError</span> <span class="o">=</span> <span class="mi">31426</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorTooManyRequestsError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorTooManyRequestsError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorTooManyRequestsError">TVOErrorTooManyRequestsError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Too many requests were sent in a given amount of time</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorTooManyRequestsError</span> <span class="o">=</span> <span class="mi">31429</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorTooManyRequestsError</span> <span class="o">=</span> <span class="mi">31429</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorTemporarilyUnavailableError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorTemporarilyUnavailableError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorTemporarilyUnavailableError">TVOErrorTemporarilyUnavailableError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The callee is currently unavailable</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorTemporarilyUnavailableError</span> <span class="o">=</span> <span class="mi">31480</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorTemporarilyUnavailableError</span> <span class="o">=</span> <span class="mi">31480</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorCallDoesNotExistError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorCallDoesNotExistError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorCallDoesNotExistError">TVOErrorCallDoesNotExistError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The call no longer exists</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorCallDoesNotExistError</span> <span class="o">=</span> <span class="mi">31481</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorCallDoesNotExistError</span> <span class="o">=</span> <span class="mi">31481</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorAddressIncompleteError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorAddressIncompleteError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorAddressIncompleteError">TVOErrorAddressIncompleteError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The phone number is malformed</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorAddressIncompleteError</span> <span class="o">=</span> <span class="mi">31484</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorAddressIncompleteError</span> <span class="o">=</span> <span class="mi">31484</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorBusyHereError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorBusyHereError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorBusyHereError">TVOErrorBusyHereError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The callee is busy</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorBusyHereError</span> <span class="o">=</span> <span class="mi">31486</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorBusyHereError</span> <span class="o">=</span> <span class="mi">31486</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorRequestTerminatedError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorRequestTerminatedError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorRequestTerminatedError">TVOErrorRequestTerminatedError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The request has terminated as a result of a bye or cancel</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorRequestTerminatedError</span> <span class="o">=</span> <span class="mi">31487</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorRequestTerminatedError</span> <span class="o">=</span> <span class="mi">31487</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorInternalServerError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorInternalServerError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorInternalServerError">TVOErrorInternalServerError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The server could not fulfill the request due to some unexpected condition</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorInternalServerError</span> <span class="o">=</span> <span class="mi">31500</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorInternalServerError</span> <span class="o">=</span> <span class="mi">31500</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorBadGatewayError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorBadGatewayError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorBadGatewayError">TVOErrorBadGatewayError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The server is acting as a gateway or proxy, and received an invalid response from a downstream server while attempting to fulfill the request</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorBadGatewayError</span> <span class="o">=</span> <span class="mi">31502</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorBadGatewayError</span> <span class="o">=</span> <span class="mi">31502</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorServiceUnavailableError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorServiceUnavailableError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorServiceUnavailableError">TVOErrorServiceUnavailableError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The server is currently unable to handle the request due to a temporary overloading or maintenance of the server</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorServiceUnavailableError</span> <span class="o">=</span> <span class="mi">31503</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorServiceUnavailableError</span> <span class="o">=</span> <span class="mi">31503</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorGatewayTimeoutError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorGatewayTimeoutError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorGatewayTimeoutError">TVOErrorGatewayTimeoutError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The server, while acting as a gateway or proxy, did not receive a timely response from an upstream server</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorGatewayTimeoutError</span> <span class="o">=</span> <span class="mi">31504</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorGatewayTimeoutError</span> <span class="o">=</span> <span class="mi">31504</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorDNSResolutionError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorDNSResolutionError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorDNSResolutionError">TVOErrorDNSResolutionError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Could not connect to the server due to DNS resolution failure</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorDNSResolutionError</span> <span class="o">=</span> <span class="mi">31530</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorDNSResolutionError</span> <span class="o">=</span> <span class="mi">31530</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorBusyEverywhereError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorBusyEverywhereError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorBusyEverywhereError">TVOErrorBusyEverywhereError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; All possible destinations are busy</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorBusyEverywhereError</span> <span class="o">=</span> <span class="mi">31600</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorBusyEverywhereError</span> <span class="o">=</span> <span class="mi">31600</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorDeclineError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorDeclineError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorDeclineError">TVOErrorDeclineError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The callee does not wish to participate in the call</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorDeclineError</span> <span class="o">=</span> <span class="mi">31603</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorDeclineError</span> <span class="o">=</span> <span class="mi">31603</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorDoesNotExistAnywhereError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorDoesNotExistAnywhereError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorDoesNotExistAnywhereError">TVOErrorDoesNotExistAnywhereError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; The requested callee does not exist anywhere</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorDoesNotExistAnywhereError</span> <span class="o">=</span> <span class="mi">31604</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorDoesNotExistAnywhereError</span> <span class="o">=</span> <span class="mi">31604</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorTokenAuthenticationRejected"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorTokenAuthenticationRejected" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorTokenAuthenticationRejected">TVOErrorTokenAuthenticationRejected</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Token authentication is rejected by authentication service</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorTokenAuthenticationRejected</span> <span class="o">=</span> <span class="mi">51007</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorTokenAuthenticationRejected</span> <span class="o">=</span> <span class="mi">51007</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorSignalingConnectionDisconnectedError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorSignalingConnectionDisconnectedError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorSignalingConnectionDisconnectedError">TVOErrorSignalingConnectionDisconnectedError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Signaling connection disconnected</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorSignalingConnectionDisconnectedError</span> <span class="o">=</span> <span class="mi">53001</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorSignalingConnectionDisconnectedError</span> <span class="o">=</span> <span class="mi">53001</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorMediaClientLocalDescFailedError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorMediaClientLocalDescFailedError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorMediaClientLocalDescFailedError">TVOErrorMediaClientLocalDescFailedError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Client is unable to create or apply a local media description</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorMediaClientLocalDescFailedError</span> <span class="o">=</span> <span class="mi">53400</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorMediaClientLocalDescFailedError</span> <span class="o">=</span> <span class="mi">53400</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorMediaServerLocalDescFailedError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorMediaServerLocalDescFailedError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorMediaServerLocalDescFailedError">TVOErrorMediaServerLocalDescFailedError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Server is unable to create or apply a local media description</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorMediaServerLocalDescFailedError</span> <span class="o">=</span> <span class="mi">53401</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorMediaServerLocalDescFailedError</span> <span class="o">=</span> <span class="mi">53401</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorMediaClientRemoteDescFailedError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorMediaClientRemoteDescFailedError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorMediaClientRemoteDescFailedError">TVOErrorMediaClientRemoteDescFailedError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Client is unable to apply a remote media description</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorMediaClientRemoteDescFailedError</span> <span class="o">=</span> <span class="mi">53402</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorMediaClientRemoteDescFailedError</span> <span class="o">=</span> <span class="mi">53402</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorMediaServerRemoteDescFailedError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorMediaServerRemoteDescFailedError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorMediaServerRemoteDescFailedError">TVOErrorMediaServerRemoteDescFailedError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Server is unable to apply a remote media description</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorMediaServerRemoteDescFailedError</span> <span class="o">=</span> <span class="mi">53403</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorMediaServerRemoteDescFailedError</span> <span class="o">=</span> <span class="mi">53403</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorMediaNoSupportedCodecError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorMediaNoSupportedCodecError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorMediaNoSupportedCodecError">TVOErrorMediaNoSupportedCodecError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; No supported codec</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorMediaNoSupportedCodecError</span> <span class="o">=</span> <span class="mi">53404</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorMediaNoSupportedCodecError</span> <span class="o">=</span> <span class="mi">53404</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOErrorMediaConnectionError"></a>
+                    <a name="//apple_ref/objc/Case/TVOErrorMediaConnectionError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOErrorMediaConnectionError">TVOErrorMediaConnectionError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Media connection failed</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOErrorMediaConnectionError</span> <span class="o">=</span> <span class="mi">53405</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorMediaConnectionError</span> <span class="o">=</span> <span class="mi">53405</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@TVOError@TVOMediaDtlsTransportFailedErrorCode"></a>
+                    <a name="//apple_ref/objc/Case/TVOMediaDtlsTransportFailedErrorCode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@TVOError@TVOMediaDtlsTransportFailedErrorCode">TVOMediaDtlsTransportFailedErrorCode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>&lt; Media connection failed due to DTLS handshake failure</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">TVOMediaDtlsTransportFailedErrorCode</span> <span class="o">=</span> <span class="mi">53407</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">mediaDtlsTransportFailedErrorCode</span> <span class="o">=</span> <span class="mi">53407</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2026 <a class="link" href="https://twilio.com" target="_blank" rel="external noopener">Twilio, Inc.</a>. All rights reserved. (Last updated: 2026-09-28)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>
