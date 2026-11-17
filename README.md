@@ -18,7 +18,7 @@ source 'https://github.com/cocoapods/specs'
 target 'TARGET_NAME' do
   use_frameworks!
 
-  pod 'TwilioVoice', '~> 6.13'
+  pod 'TwilioVoice', '~> 7.0'
 end
 ~~~
 
@@ -27,7 +27,7 @@ Then run `pod install --verbose` to install the dependencies to your project.
 To integrate the static framework, use the `TwilioVoice-static` pod:
 
 ```rb
-  pod 'TwilioVoice-static', '~> 6.13'
+  pod 'TwilioVoice-static', '~> 7.0'
 ```
 
 ### Manual Integration
